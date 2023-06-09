@@ -156,7 +156,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Spark Local环境部署</title>
+    <title>SparkLocal环境部署</title>
     <url>/2023/06/08/Spark%E8%AF%BE%E7%A8%8B%E5%85%A8%E6%B5%81%E7%A8%8B%E9%85%8D%E7%BD%AEsparklocal%20/</url>
     <content><![CDATA[<h1 id="Spark-local-部署"><a href="#Spark-local-部署" class="headerlink" title="Spark(local)部署"></a>Spark(local)部署</h1><h1 id="一、回顾认识Spark-Local"><a href="#一、回顾认识Spark-Local" class="headerlink" title="一、回顾认识Spark-Local"></a>一、回顾认识Spark-Local</h1><p>Spark 是由一个强大而活跃的开源社区开发和维护的，是一个用来实现快速，通用的集群计算平台，适用于各种各样原先需要多种不同的分布式平台的场景，包括批处理，迭代算法，交互式查询，流处理。通过在一个统一的框架下支持这些不同的计算，spark使我们可以简单而低耗地把各种处理流程整合在一起。具备 SQL、统计、预测建模（机器学习）等方面的经验，以及一定的python，matlab，R语言能力的数据科学家对数据进行分析，以回答问题或发现一些潜在规律。</p>
 <p>Spark的架构角色 - 理解<br>YARN主要有4类角色,从2个层面去看:</p>
