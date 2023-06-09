@@ -1,282 +1,380 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Git环境部署</title>
+    <url>/2023/06/07/Git%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="GIT的发展简史"><a href="#GIT的发展简史" class="headerlink" title="GIT的发展简史"></a>GIT的发展简史</h2><p>在2002年以前，世界各地的志愿者把源代码文件通过diff的方式发给Linus，然后由Linus本人通过手工方式合并代码,不过，到了2002年，Linux系统已经发展了十年了，代码库之大让Linus很难继续通过手工方式管理了,于是Linus选择了一个商业的版本控制系统BitKeeper,另一方面,BitKeeper不是开源的. 显然与Linux 的开源精神不相符,所以linux 社区的很多人抱怨,不愿意使用。</p>
+<p>Linus 本人 花了10天的时间Git 出来了,一个月之内，Linux系统的源码已经由Git管理了,Git 出来以后毕竟是一个人做的,开始并不好用(刚开始只能用勉强可以用来形容), 还是很多人抱怨,发展了很多年都没有干过其他软件。</p>
+<p>直到 2008年，GitHub网站上线了，它为开源项目免费提供Git存储，无数开源项目开始迁移至GitHub,从此git 迎来了飞速发展,当下git 已经成为了最流行的版本控制工具。</p>
+<h2 id="Git的工作流程"><a href="#Git的工作流程" class="headerlink" title="Git的工作流程"></a>Git的工作流程</h2><p>Git是分布式版本控制系统（Distributed Version Control System，简称 DVCS），分为两种类型的仓库：<br>本地仓库和远程仓库<br>工作流程如下：</p>
+<h5 id="1．从远程仓库中克隆或拉取代码到本地仓库-clone-x2F-pull"><a href="#1．从远程仓库中克隆或拉取代码到本地仓库-clone-x2F-pull" class="headerlink" title="1．从远程仓库中克隆或拉取代码到本地仓库(clone&#x2F;pull)"></a>1．从远程仓库中克隆或拉取代码到本地仓库(clone&#x2F;pull)</h5><h5 id="2．从本地进行代码修改"><a href="#2．从本地进行代码修改" class="headerlink" title="2．从本地进行代码修改"></a>2．从本地进行代码修改</h5><h5 id="3．在提交前先将代码提交到暂存区"><a href="#3．在提交前先将代码提交到暂存区" class="headerlink" title="3．在提交前先将代码提交到暂存区"></a>3．在提交前先将代码提交到暂存区</h5><h5 id="4．提交到本地仓库。本地仓库中保存修改的各个历史版本"><a href="#4．提交到本地仓库。本地仓库中保存修改的各个历史版本" class="headerlink" title="4．提交到本地仓库。本地仓库中保存修改的各个历史版本"></a>4．提交到本地仓库。本地仓库中保存修改的各个历史版本</h5><h5 id="5．修改完成后，需要和团队成员共享代码时，将代码push到远程仓库"><a href="#5．修改完成后，需要和团队成员共享代码时，将代码push到远程仓库" class="headerlink" title="5．修改完成后，需要和团队成员共享代码时，将代码push到远程仓库"></a>5．修改完成后，需要和团队成员共享代码时，将代码push到远程仓库</h5><p><img src="/../image-git/1.jpg" alt="图 1">  </p>
+<h2 id="GIT常用命令流程图"><a href="#GIT常用命令流程图" class="headerlink" title="GIT常用命令流程图:"></a>GIT常用命令流程图:</h2><p><img src="/../image-git/2.jpg" alt="图 3">  </p>
+<h1 id="Git-的安装以及基础使用"><a href="#Git-的安装以及基础使用" class="headerlink" title="Git 的安装以及基础使用"></a>Git 的安装以及基础使用</h1><h2 id="一、下载"><a href="#一、下载" class="headerlink" title="一、下载"></a>一、下载</h2><p>git下载网址：<a href="https://git-scm.com/download">https://git-scm.com/download</a><br><img src="/../image-git/3.jpg" alt="图 4"><br>git客户端下载网址：<a href="https://tortoisegit.org/download/">https://tortoisegit.org/download/</a><br><img src="/../image-git/4.jpg" alt="图 5"><br>下载完成后<br><img src="/../image-git/5.jpg" alt="图 6"><br><img src="/../image-git/6.jpg" alt="图 7">  </p>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p>按照顺序直接下一步安装即可<br><img src="/../image-git/7.jpg" alt="图 8"><br><img src="/../image-git/8.jpg" alt="图 9">  </p>
+<h4 id="更改语言"><a href="#更改语言" class="headerlink" title="更改语言"></a>更改语言</h4><p><img src="/../image-git/9.jpg" alt="图 10">  </p>
+<h2 id="三、Git-的基本使用01-TortoiseGit-操作本地仓库"><a href="#三、Git-的基本使用01-TortoiseGit-操作本地仓库" class="headerlink" title="三、Git 的基本使用01-TortoiseGit 操作本地仓库"></a>三、Git 的基本使用01-TortoiseGit 操作本地仓库</h2><h3 id="1-初始化仓库初始化仓库"><a href="#1-初始化仓库初始化仓库" class="headerlink" title="1.初始化仓库初始化仓库"></a>1.初始化仓库初始化仓库</h3><p>新建一个文件夹,进入文件夹内部操作</p>
+<h4 id="1-右键–-gt-在这里创建Git-版本库"><a href="#1-右键–-gt-在这里创建Git-版本库" class="headerlink" title="1)右键–&gt; 在这里创建Git 版本库"></a>1)右键–&gt; 在这里创建Git 版本库</h4><p><img src="/../image-git/10.jpg" alt="图 11">  </p>
+<h3 id="2-添加文件"><a href="#2-添加文件" class="headerlink" title="2.添加文件"></a>2.添加文件</h3><h4 id="1-在仓库中新建一个文件"><a href="#1-在仓库中新建一个文件" class="headerlink" title="1)在仓库中新建一个文件"></a>1)在仓库中新建一个文件</h4><h4 id="2-选中新建的文件–-gt-右键–-gt-TortoiseGit–-gt-添加"><a href="#2-选中新建的文件–-gt-右键–-gt-TortoiseGit–-gt-添加" class="headerlink" title="2)选中新建的文件–&gt;右键–&gt; TortoiseGit–&gt; 添加"></a>2)选中新建的文件–&gt;右键–&gt; TortoiseGit–&gt; 添加</h4><h4 id="3-此时我们看到文件夹上多了一个-“加号”"><a href="#3-此时我们看到文件夹上多了一个-“加号”" class="headerlink" title="3)此时我们看到文件夹上多了一个 “加号”"></a>3)此时我们看到文件夹上多了一个 “加号”</h4><p><img src="/../image-git/11.jpg" alt="图 12">  </p>
+<h3 id="3-提交文件至本地仓库"><a href="#3-提交文件至本地仓库" class="headerlink" title="3.提交文件至本地仓库"></a>3.提交文件至本地仓库</h3><h4 id="1-选中文件"><a href="#1-选中文件" class="headerlink" title="1)选中文件"></a>1)选中文件</h4><h4 id="2-右键–git提交"><a href="#2-右键–git提交" class="headerlink" title="2) 右键–git提交"></a>2) 右键–git提交</h4><p><img src="/../image-git/12.jpg" alt="图 13">  </p>
+<h3 id="4-修改文件-与再次提交文件"><a href="#4-修改文件-与再次提交文件" class="headerlink" title="4.修改文件,与再次提交文件"></a>4.修改文件,与再次提交文件</h3><p><img src="/../image-git/13.jpg" alt="图 15">  </p>
+<h3 id="5-查看提交历史记录"><a href="#5-查看提交历史记录" class="headerlink" title="5.查看提交历史记录"></a>5.查看提交历史记录</h3><p>选中文件<br>右键–&gt; TortoiseGit–&gt; 显示日志<br>（此时我们可以看到所有的历史提交记录）<br><img src="/../image-git/14.jpg" alt="图 16">  </p>
+<h3 id="6-回退至历史版本"><a href="#6-回退至历史版本" class="headerlink" title="6.回退至历史版本"></a>6.回退至历史版本</h3><p>右键–&gt; TortoiseGit–&gt; 显示日志<br>选中某个版本–&gt; 进行如下操作<br><img src="/../image-git/15.jpg" alt="图 17">  </p>
+<h3 id="7-本地删除与恢复"><a href="#7-本地删除与恢复" class="headerlink" title="7.本地删除与恢复"></a>7.本地删除与恢复</h3><p>直接选中文件删除的话,其实只是删除了本地工作区的文件,并没有删除 仓库中的文件<br>   此时时可以回退的, 比如我们进行如下操作：</p>
+<h4 id="1-文件删除"><a href="#1-文件删除" class="headerlink" title="1)文件删除"></a>1)文件删除</h4><h4 id="2-右键–-gt-TortoiseGit–-gt-还原"><a href="#2-右键–-gt-TortoiseGit–-gt-还原" class="headerlink" title="2)右键–&gt; TortoiseGit–&gt; 还原"></a>2)右键–&gt; TortoiseGit–&gt; 还原</h4><p>   此时我们发现文件又被恢复了<br><img src="/../image-git/16.jpg" alt="图 18"><br><img src="/../image-git/17.jpg" alt="图 19">  </p>
+<h3 id="8-从版本库删除-但是不删除本地"><a href="#8-从版本库删除-但是不删除本地" class="headerlink" title="8.从版本库删除,但是不删除本地"></a>8.从版本库删除,但是不删除本地</h3><p><img src="/../image-git/18.jpg" alt="图 20">  </p>
+<h3 id="9-创建分支"><a href="#9-创建分支" class="headerlink" title="9.创建分支"></a>9.创建分支</h3><p><img src="/../image-git/1.jpg" alt="图 21">  </p>
+<h3 id="10-查看分支"><a href="#10-查看分支" class="headerlink" title="10.查看分支"></a>10.查看分支</h3><p><img src="/../image-git/19.jpg" alt="图 22">  </p>
+<h3 id="11-切换分支"><a href="#11-切换分支" class="headerlink" title="11.切换分支"></a>11.切换分支</h3><p>右键–&gt; 检出<br><img src="/../image-git/20.jpg" alt="图 23">  </p>
+<h3 id="12-合并"><a href="#12-合并" class="headerlink" title="12.合并"></a>12.合并</h3><p>我们将代码切换到分支1,然后写属于需求1 的代码并提交<br>当我们把需求1 开发完毕如何把需求1 的代码合并到主分支呢?</p>
+<h4 id="–-gt-1-切换到-主版本"><a href="#–-gt-1-切换到-主版本" class="headerlink" title="–&gt;1 切换到 主版本"></a>–&gt;1 切换到 主版本</h4><h4 id="–-gt-2-右键-合并即可将需求1-写的代码合并至主分支"><a href="#–-gt-2-右键-合并即可将需求1-写的代码合并至主分支" class="headerlink" title="–&gt;2 右键 合并即可将需求1 写的代码合并至主分支"></a>–&gt;2 右键 合并即可将需求1 写的代码合并至主分支</h4><h4 id="—–此时我们看到代码自动合并到了master分支"><a href="#—–此时我们看到代码自动合并到了master分支" class="headerlink" title="—–此时我们看到代码自动合并到了master分支"></a>—–此时我们看到代码自动合并到了master分支</h4><p><img src="/../image-git/21.jpg" alt="图 24">  </p>
+<h3 id="13-删除分支"><a href="#13-删除分支" class="headerlink" title="13.删除分支"></a>13.删除分支</h3><p><img src="/../image-git/22.jpg" alt="图 25">  </p>
+<h3 id="14-冲突的处理"><a href="#14-冲突的处理" class="headerlink" title="14.冲突的处理"></a>14.冲突的处理</h3><p><img src="/../image-git/23.jpg" alt="图 26">  </p>
+<h3 id="15-标签的创建-tag"><a href="#15-标签的创建-tag" class="headerlink" title="15.标签的创建(tag)"></a>15.标签的创建(tag)</h3><p>标签的创建和分支的创建操作几乎一样<br><img src="/../image-git/24.jpg" alt="图 27">  </p>
+<h3 id="16-标签的切换与删除"><a href="#16-标签的切换与删除" class="headerlink" title="16.标签的切换与删除"></a>16.标签的切换与删除</h3><p><img src="/../image-git/25.jpg" alt="图 28"><br><img src="/../image-git/26.jpg" alt="图 29">  </p>
+<h3 id="17-本地相对路径-多个文件夹之间共享代码"><a href="#17-本地相对路径-多个文件夹之间共享代码" class="headerlink" title="17.本地相对路径,多个文件夹之间共享代码"></a>17.本地相对路径,多个文件夹之间共享代码</h3><p><img src="/../image-git/27.jpg" alt="图 30">  </p>
+<h3 id="18-开启局域网共享代码"><a href="#18-开启局域网共享代码" class="headerlink" title="18.开启局域网共享代码"></a>18.开启局域网共享代码</h3><p><img src="/../image-git/28.jpg" alt="图 31"><br>局域网这种共享是没有安全控制的,都可以访问,如果想要搭建一个可以控制权限的服务器需要借助第三方软件</p>
+<h2 id="四、常用远程仓库托管服务"><a href="#四、常用远程仓库托管服务" class="headerlink" title="四、常用远程仓库托管服务"></a>四、常用远程仓库托管服务</h2><p>除了自己搭建服务器,其实我们可以使用一些免费的远程仓库，例如：<a href="http://www.gitee.com/">www.gitee.com</a></p>
+<h3 id="1-码云账号注册"><a href="#1-码云账号注册" class="headerlink" title="1.码云账号注册"></a>1.码云账号注册</h3><p><img src="/../image-git/29.jpg" alt="图 32">  </p>
+<h3 id="2-创建远程仓库"><a href="#2-创建远程仓库" class="headerlink" title="2.创建远程仓库"></a>2.创建远程仓库</h3><p><img src="/../image-git/30.jpg" alt="图 33">  </p>
+<h3 id="3-查看仓库地址"><a href="#3-查看仓库地址" class="headerlink" title="3.查看仓库地址"></a>3.查看仓库地址</h3><p><img src="/../image-git/31.jpg" alt="图 34">  </p>
+<h3 id="4-把本地代码推送到远端"><a href="#4-把本地代码推送到远端" class="headerlink" title="4.把本地代码推送到远端"></a>4.把本地代码推送到远端</h3><p><img src="/../image-git/32.jpg" alt="图 35"><br><img src="/../image-git/33.jpg" alt="图 36"><br><img src="/../image-git/34.jpg" alt="图 37">  </p>
+<h3 id="5-从远程仓库克隆代码"><a href="#5-从远程仓库克隆代码" class="headerlink" title="5.从远程仓库克隆代码"></a>5.从远程仓库克隆代码</h3><p>我们同样可以从库下载代码,新建一个文件夹 repo2 ,进入然后进行如下操作。<br><img src="/../image-git/35.jpg" alt="图 38"><br><img src="/../image-git/36.jpg" alt="图 39"><br>此时我们发现我们的代码已经被下载下来了</p>
+<h2 id="五、ssh-连接概述"><a href="#五、ssh-连接概述" class="headerlink" title="五、ssh 连接概述"></a>五、ssh 连接概述</h2><p>实际上git 不仅仅支持用户名密码方式的配置,可以有另外一种相对更加安全的配置即ssh 方式配置</p>
+<h3 id="1-ssh-密钥的生成"><a href="#1-ssh-密钥的生成" class="headerlink" title="1.ssh 密钥的生成"></a>1.ssh 密钥的生成</h3><h4 id="生成公钥私钥"><a href="#生成公钥私钥" class="headerlink" title="生成公钥私钥"></a>生成公钥私钥</h4><p>ssh-keygen -t rsa<br>一直回车即可<br>会默认用户目录 .ssh 目录生成一个默认的id_rsa文件 和id_rsa.pub<br><img src="/../image-git/37.jpg" alt="图 40">  </p>
+<h3 id="2-ssh-密钥配置"><a href="#2-ssh-密钥配置" class="headerlink" title="2.ssh 密钥配置"></a>2.ssh 密钥配置</h3><p><img src="/../image-git/38.jpg" alt="图 41"><br><img src="/../image-git/39.jpg" alt="图 42">  </p>
+<h3 id="3-ssh-方式克隆-x2F-提交代码"><a href="#3-ssh-方式克隆-x2F-提交代码" class="headerlink" title="3.ssh 方式克隆&#x2F;提交代码:"></a>3.ssh 方式克隆&#x2F;提交代码:</h3><p><img src="/../image-git/40.jpg" alt="图 43">  </p>
+<h1 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">同时，我通过对GIT的安装、启动、运行、解决问题的一系列完成，对此了解越来越深：</span><br><span class="line"></span><br><span class="line">上述我们的操作 使用的 是客户端TortoiseGit 操作的git ,实际上底层依旧是使用的命令行帮我们执行, 在早期 git 并没有窗口化工具,开发人员只能使用命令行模式</span><br><span class="line"></span><br><span class="line">实际上,如果你掌握并熟练使用了命令行模式操作git 的话,你会发现某些操作命令行比窗口化操作要简单</span><br><span class="line">所有你在工作中会发现高深的技术人员可能会喜欢命令行模式提交git，当下git 已经成为了最流行的版本控制工具。</span><br><span class="line"></span><br><span class="line">最后，通过这次实践，积极向同学询问其中的疑问，在同学的帮助下解决困难，完成作业，对与其中的不足也是我后续将继续学习的地方。</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>7.Spark(Pyspark基础编译环境）</title>
+    <url>/2023/06/09/Spark(Pyspark%E5%9F%BA%E7%A1%80%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="7-1本地Pyspark环境配置"><a href="#7-1本地Pyspark环境配置" class="headerlink" title="7.1本地Pyspark环境配置"></a>7.1本地Pyspark环境配置</h1><ul>
+<li><p>首先需要<code>本地安装 Anaconda</code>（下载安装过程在这不再讲解），利用Anaconda 创建基于Python3.8 的Pyspark 的虚拟环境。以下为安装命令：（命令在 Anaconda Powershell 中执行）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#创建虚拟环境 pyspark, 基于 Python 3.8</span><br><span class="line">conda create -n pyspark python=3.8</span><br><span class="line"></span><br><span class="line">#切换到虚拟环境内</span><br><span class="line">conda activate pyspark</span><br><span class="line"></span><br><span class="line">#在安装包的过程中如果速度过慢可通过指令手动添加镜像或者将国内源配置在 Anaconda 中方便下载，以下以本机为例添加镜像：</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后用记事本打开:C:\Users\用户名\<code>.condarc文件</code>, 将如下内容替换进文件内,保存即可:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">channels:</span><br><span class="line"> - defaults</span><br><span class="line">show_channel_urls: true</span><br><span class="line">default_channels:</span><br><span class="line"> - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br><span class="line"> - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="line"> - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><br><span class="line">custom_channels:</span><br><span class="line"> conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line"> msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line"> bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line"> menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line"> pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line"> simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><img src="/../images/1.png" alt="1.png"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在虚拟环境内安装包</span></span><br><span class="line">pip install pyhive pyspark jieba -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装完成后结果见下图：</li>
+</ul>
+<p><img src="/../images/2.png" alt="2.png"></p>
+<ul>
+<li><p>在本机中还需要<code>安装Hadoop DDL</code>，因为PySpark在运行计算服务过程中会使用到Hadoop中的Mapreduce服务，所以需要在本机中添加补丁：</p>
+</li>
+<li><p>将课程资料中提供的: <code>hadoop-3.3.0 文件</code>, 解压复制到本机,例如：</p>
+</li>
+</ul>
+<p><img src="/../images/3.png" alt="3.png"></p>
+<ul>
+<li>并把bin目录下的hadoop.dll复制到<code>C:\Windows\System32\</code>路径下:</li>
+</ul>
+<p><img src="/../images/4.png" alt="4.png"></p>
+<ul>
+<li>在本机的环境变量的系统变量设置中<code>配置HADOOP_HOME环境变量</code>指向 hadoop-3.3.0文件夹的路径：</li>
+</ul>
+<p><img src="/../images/5.png" alt="5.png"></p>
+<h1 id="7-2在PyCharm中配置本地Python解释器"><a href="#7-2在PyCharm中配置本地Python解释器" class="headerlink" title="7.2在PyCharm中配置本地Python解释器"></a>7.2在PyCharm中配置本地Python解释器</h1><ul>
+<li>首先需要下载<a href="https://www.jetbrains.com/pycharm/">专业版Pycharm</a>，在PyCharm中的设置中配置Python解析器。</li>
+</ul>
+<p><img src="/../images/6.png" alt="6.png"></p>
+<ul>
+<li>配置Linux环境中的Pyspark解释器，这样才能通过本机的Python Spark脚本运行对Linux进行远程运算：</li>
+<li>设置远程SSH python Pyspark环境</li>
+</ul>
+<p><img src="/../images/7.png" alt="7.png"></p>
+<ul>
+<li>设置虚拟机中的python环境路径：</li>
+<li>可以先查看Linux中的pyspark中的python路径，方便添加到pycharm的解释器中，以本机的路径为例：  <code>/export/server/anaconda3/envs/pyspark/bin/python3</code></li>
+</ul>
+<p><img src="/../images/8.png" alt="8.png"></p>
+<p><img src="/../images/9.png" alt="9.png"></p>
+<ul>
+<li><code>将Anaconda中Pyspark路径添加至本机的环境变量</code>，否则在接下来的Pyspark Python代码执行时无法调用Pyspark：</li>
+</ul>
+<p><img src="/../images/10.png" alt="10.png"></p>
+<h1 id="7-3导入构建Pyspark-python脚本文件"><a href="#7-3导入构建Pyspark-python脚本文件" class="headerlink" title="7.3导入构建Pyspark python脚本文件"></a>7.3导入构建Pyspark python脚本文件</h1><ul>
+<li>新建名为Pyspark的项目，<code>解释器选择本机的Pyspark python环境</code>，新建HelloWorld.py文件，导入以下代码：</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="comment"># coding:utf8</span></span><br><span class="line"><span class="attr">from</span> <span class="string">pyspark import SparkConf, SparkContext</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># import os</span></span><br><span class="line"><span class="comment"># os.environ[&#x27;PYSPARK_PYTHON&#x27;]=&#x27;D:\\Anaconda\\envs\\pyspark\\python.exe&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">if</span> <span class="string">__name__ == &#x27;__main__&#x27;:</span></span><br><span class="line">    <span class="attr">conf</span> = <span class="string">SparkConf().setAppName(&quot;WordCountHelloWorld&quot;).setMaster(&quot;local[*]&quot;)</span></span><br><span class="line"><span class="comment">    # 通过SparkConf对象构建SparkContext对象</span></span><br><span class="line">    <span class="attr">sc</span> = <span class="string">SparkContext(conf=conf)</span></span><br><span class="line"><span class="comment">    # 需求 : wordcount单词计数, 读取HDFS上的words.txt文件, 对其内部的单词统计出现 的数量</span></span><br><span class="line"><span class="comment">    # 读取文件</span></span><br><span class="line"><span class="comment">    # file_rdd = sc.textFile(&quot;hdfs://node1:8020/input/words.txt&quot;) #hdfs路径</span></span><br><span class="line">    <span class="attr">file_rdd</span> = <span class="string">sc.textFile(&quot;file:///tmp/pycharm_project_360/data/input/words.txt&quot;)</span></span><br><span class="line"><span class="comment">    # file_rdd = sc.textFile(&quot;./data/input/words.txt&quot;)</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    # 将单词进行切割, 得到一个存储全部单词的集合对象</span></span><br><span class="line">    <span class="attr">words_rdd</span> = <span class="string">file_rdd.flatMap(lambda line: line.split(&quot; &quot;))</span></span><br><span class="line"><span class="comment">    # 将单词转换为元组对象, key是单词, value是数字1</span></span><br><span class="line">    <span class="attr">words_with_one_rdd</span> = <span class="string">words_rdd.map(lambda x: (x, 1))</span></span><br><span class="line"><span class="comment">    # 将元组的value 按照key来分组, 对所有的value执行聚合操作(相加)</span></span><br><span class="line">    <span class="attr">result_rdd</span> = <span class="string">words_with_one_rdd.reduceByKey(lambda a, b: a + b)</span></span><br><span class="line"><span class="comment">    # 通过collect方法收集RDD的数据打印输出结果</span></span><br><span class="line">    <span class="attr">print(result_rdd.collect())</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在本地新建文件word.txt加入一些文本，并添加本地路径至代码中：</li>
+</ul>
+<p><img src="/../images/11.png" alt="11.png"></p>
+<ul>
+<li><strong>特别注意的是在本地执行wordcount计数时，pyspark的本机环境需提前配置或者可以在代码中手动引用Pyspark Python环境变量，例如：</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import os</span><br><span class="line">os.environ[&#x27;PYSPARK_PYTHON&#x27;]=&#x27;D:\\Anaconda\\envs\\pyspark\\python.exe&#x27;</span><br></pre></td></tr></table></figure>
+<h1 id="7-4WordCount代码实例"><a href="#7-4WordCount代码实例" class="headerlink" title="7.4	WordCount代码实例"></a>7.4	WordCount代码实例</h1><ul>
+<li>在本地RDD读取words.txt进行WordCount计数：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#在读取文件代码下只开启：</span><br><span class="line">file_rdd = sc.textFile(&quot;./data/input/words.txt&quot;)</span><br></pre></td></tr></table></figure></li>
+<li>选择本地的Pyspark Python解释器并运行：</li>
+</ul>
+<p><img src="/../images/12.png" alt="12.png"></p>
+<ul>
+<li>在本地RDD读取Linux中HDFS上的words.txt进行WordCount计数:</li>
+<li>首先需在HDFS上<code>创建并放置words.txt文件</code>:</li>
+</ul>
+<p><img src="/../images/13.png" alt="13.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> #在读取文件代码中设置HDFS上的路径：</span><br><span class="line">file_rdd = sc.textFile(&quot;hdfs://node1:8020/input/words.txt&quot;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>选择本地的Pyspark Python解释器并运行：</li>
+</ul>
+<p><img src="/../images/14.png" alt="14.png"></p>
+<ul>
+<li>在Linux中RDD读取Linux中的words.txt进行WordCount计数：</li>
+<li>首先<code>在远程服务器端创建对应的Pycharm项目路径及文件</code>，例如：</li>
+</ul>
+<p><img src="/../images/15.png" alt="15.png"></p>
+<blockquote>
+<p><strong>Pycharm中也有功能对远程服务器进行同步文件</strong></p>
+</blockquote>
+<ul>
+<li>在远程端激活Pyspark环境，将HelloWord.py文件中读取文件下的代码<code>只开启读取远程服务器下的路径</code>：</li>
+</ul>
+<p><img src="/../images/16.png" alt="16.png"></p>
+<ul>
+<li>在本地切换为远程Pyspark Python解释器，并运行：</li>
+</ul>
+<p><img src="/../images/17.png" alt="17.png"></p>
+<ul>
+<li>将代码提交至YARN集群进行测试：<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bin/spark-submit --master yarn --name wordcount /HelloWorld.py</span><br></pre></td></tr></table></figure>
+<img src="/../images/18.png" alt="18.png"></li>
+</ul>
+<p><img src="/../images/19.png" alt="19.png"></p>
+<p><strong>在运行Pyspark过程中需要注意的问题：</strong></p>
+<blockquote>
+<ol>
+<li>需要对原来的pyspark进行卸载<br>pip uninstall pyspark</li>
+<li>将本机及远程服务器中的Pyspark安装为3.2.0版本;<br>pip install pyspark&#x3D;&#x3D;3.2.0 -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></li>
+</ol>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>Spark Local环境部署</title>
-    <url>/2023/06/07/Spark%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3/</url>
-    <content><![CDATA[<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="https://dlcdn.apache.org/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz">https://dlcdn.apache.org/spark/spark-3.2.0/spark-3.2.0-bin-hadoop3.2.tgz</a></p>
-<h2 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h2><ul>
-<li>PYTHON 推荐3.8</li>
-<li>JDK 1.8</li>
-</ul>
-<h2 id="Anaconda-On-Linux-安装"><a href="#Anaconda-On-Linux-安装" class="headerlink" title="Anaconda On Linux 安装"></a>Anaconda On Linux 安装</h2><p>本次课程的Python环境需要安装到Linux(虚拟机)和Windows(本机)上</p>
-<p>参见最下方, 附1: Anaconda On Linux 安装</p>
-<h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><p>解压下载的Spark安装包</p>
-<p><code>tar -zxvf spark-3.2.0-bin-hadoop3.2.tgz -C /export/server/</code></p>
-<h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><p>配置Spark由如下5个环境变量需要设置</p>
-<ul>
-<li>SPARK_HOME: 表示Spark安装路径在哪里 </li>
-<li>PYSPARK_PYTHON: 表示Spark想运行Python程序, 那么去哪里找python执行器 </li>
-<li>JAVA_HOME: 告知Spark Java在哪里 </li>
-<li>HADOOP_CONF_DIR: 告知Spark Hadoop的配置文件在哪里 </li>
-<li>HADOOP_HOME: 告知Spark  Hadoop安装在哪里</li>
-</ul>
-<p>这5个环境变量 都需要配置在: <code>/etc/profile</code>中<br>​</p>
-<p><img src="/../image/1.jpg"></p>
-<p>PYSPARK_PYTHON和 JAVA_HOME 需要同样配置在: <code>/root/.bashrc</code>中</p>
-<p><img src="/../image/2.jpg"></p>
-<h2 id="上传Spark安装包"><a href="#上传Spark安装包" class="headerlink" title="上传Spark安装包"></a>上传Spark安装包</h2><p>资料中提供了: <code>spark-3.2.0-bin-hadoop3.2.tgz</code></p>
-<p>上传这个文件到Linux服务器中</p>
-<p>将其解压, 课程中将其解压(安装)到: <code>/export/server</code>内.</p>
-<p><code>tar -zxvf spark-3.2.0-bin-hadoop3.2.tgz -C /export/server/</code></p>
-<p>由于spark目录名称很长, 给其一个软链接:</p>
-<p><code>ln -s /export/server/spark-3.2.0-bin-hadoop3.2 /export/server/spark</code><br>​H</p>
-<p><img src="/../image/3.jpg"><br><img src="/../image/4.jpg"></p>
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="bin-x2F-pyspark"><a href="#bin-x2F-pyspark" class="headerlink" title="bin&#x2F;pyspark"></a>bin&#x2F;pyspark</h3><p>bin&#x2F;pyspark 程序, 可以提供一个  <code>交互式</code>的 Python解释器环境, 在这里面可以写普通python代码, 以及spark代码<br>​</p>
-<p><img src="/../image/5.jpg"></p>
-<p>如图:</p>
-<p><img src="/../image/6.jpg"></p>
-<p>在这个环境内, 可以运行spark代码</p>
-<p>图中的: <code>parallelize</code> 和 <code>map</code> 都是spark提供的API</p>
-<p><code>sc.parallelize([1,2,3,4,5]).map(lambda x: x + 1).collect()</code><br>​</p>
-<h3 id="WEB-UI-4040"><a href="#WEB-UI-4040" class="headerlink" title="WEB UI (4040)"></a>WEB UI (4040)</h3><p>Spark程序在运行的时候, 会绑定到机器的<code>4040</code>端口上.</p>
-<p>如果4040端口被占用, 会顺延到4041 … 4042…<br><img src="/../image/7.jpg"></p>
-<p>4040端口是一个WEBUI端口, 可以在浏览器内打开:</p>
-<p>输入:<code>服务器ip:4040</code> 即可打开:<br><img src="/../image/8.jpg"></p>
-<p>打开监控页面后, 可以发现 在程序内仅有一个Driver</p>
-<p>因为我们是Local模式, Driver即管理 又 干活.</p>
-<p>同时, 输入jps<br>​</p>
-<p><img src="/../image/9.jpg"></p>
-<p>可以看到local模式下的唯一进程存在</p>
-<p>这个进程 即是master也是worker</p>
-<h3 id="bin-x2F-spark-shell-了解"><a href="#bin-x2F-spark-shell-了解" class="headerlink" title="bin&#x2F;spark-shell - 了解"></a>bin&#x2F;spark-shell - 了解</h3><p>同样是一个解释器环境, 和<code>bin/pyspark</code>不同的是, 这个解释器环境 运行的不是python代码, 而是scala程序代码</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">scala&gt; </span><span class="language-bash">sc.parallelize(Array(1,2,3,4,5)).map(x=&gt; x + 1).collect()</span></span><br><span class="line">res0: Array[Int] = Array(2, 3, 4, 5, 6)</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>这个仅作为了解即可, 因为这个是用于scala语言的解释器环境</p>
-</blockquote>
-<h3 id="bin-x2F-spark-submit-PI"><a href="#bin-x2F-spark-submit-PI" class="headerlink" title="bin&#x2F;spark-submit (PI)"></a>bin&#x2F;spark-submit (PI)</h3><p>作用: 提交指定的Spark代码到Spark环境中运行</p>
-<p>使用方法:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">语法</span></span><br><span class="line">bin/spark-submit [可选的一些选项] jar包或者python代码的路径 [代码的参数]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">示例</span></span><br><span class="line">bin/spark-submit /export/server/spark/examples/src/main/python/pi.py 10</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">此案例 运行Spark官方所提供的示例代码 来计算圆周率值.  后面的10 是主函数接受的参数, 数字越高, 计算圆周率越准确.</span></span><br></pre></td></tr></table></figure>
-
-
-<p>对比</p>
-<table>
-<thead>
-<tr>
-<th>功能</th>
-<th>bin&#x2F;spark-submit</th>
-<th>bin&#x2F;pyspark</th>
-<th>bin&#x2F;spark-shell</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>功能</td>
-<td>提交java\scala\python代码到spark中运行</td>
-<td>提供一个<code>python</code></td>
-<td></td>
-</tr>
-<tr>
-<td>解释器环境用来以python代码执行spark程序</td>
-<td>提供一个<code>scala</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>解释器环境用来以scala代码执行spark程序</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>特点</td>
-<td>提交代码用</td>
-<td>解释器环境 写一行执行一行</td>
-<td>解释器环境 写一行执行一行</td>
-</tr>
-<tr>
-<td>使用场景</td>
-<td>正式场合, 正式提交spark程序运行</td>
-<td>测试\学习\写一行执行一行\用来验证代码等</td>
-<td>测试\学习\写一行执行一行\用来验证代码等</td>
-</tr>
-</tbody></table>
-<h1 id="Spark-StandAlone环境部署"><a href="#Spark-StandAlone环境部署" class="headerlink" title="Spark StandAlone环境部署"></a>Spark StandAlone环境部署</h1><h2 id="新角色-历史服务器"><a href="#新角色-历史服务器" class="headerlink" title="新角色 历史服务器"></a>新角色 历史服务器</h2><blockquote>
-<p>历史服务器不是Spark环境的必要组件, 是可选的.</p>
-</blockquote>
-<blockquote>
-<p>回忆: 在YARN中 有一个历史服务器, 功能: 将YARN运行的程序的历史日志记录下来, 通过历史服务器方便用户查看程序运行的历史信息.</p>
-</blockquote>
-<p>Spark的历史服务器, 功能: 将Spark运行的程序的历史日志记录下来, 通过历史服务器方便用户查看程序运行的历史信息.</p>
-<p>搭建集群环境, 我们一般<code>推荐将历史服务器也配置上</code>, 方面以后查看历史记录<br>​</p>
-<h2 id="集群规划"><a href="#集群规划" class="headerlink" title="集群规划"></a>集群规划</h2><p>课程中 使用三台Linux虚拟机来组成集群环境, 非别是:</p>
-<p>node1\ node2\ node3</p>
-<p>node1运行: Spark的Master进程  和 1个Worker进程</p>
-<p>node2运行: spark的1个worker进程</p>
-<p>node3运行: spark的1个worker进程</p>
-<p>整个集群提供: 1个master进程 和 3个worker进程</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="在所有机器安装Python-Anaconda"><a href="#在所有机器安装Python-Anaconda" class="headerlink" title="在所有机器安装Python(Anaconda)"></a>在所有机器安装Python(Anaconda)</h3><p>参考 附1内容, 如何在Linux上安装anaconda</p>
-<p>同时不要忘记 都创建<code>pyspark</code>虚拟环境 以及安装虚拟环境所需要的包<code>pyspark jieba pyhive</code></p>
-<h3 id="在所有机器配置环境变量"><a href="#在所有机器配置环境变量" class="headerlink" title="在所有机器配置环境变量"></a>在所有机器配置环境变量</h3><p>参考 Local模式下 环境变量的配置内容</p>
-<p><code>确保3台都配置</code></p>
-<h3 id="配置配置文件"><a href="#配置配置文件" class="headerlink" title="配置配置文件"></a>配置配置文件</h3><p>进入到spark的配置文件目录中, <code>cd $SPARK_HOME/conf</code></p>
-<p>配置workers文件</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">改名, 去掉后面的.template后缀</span></span><br><span class="line">mv workers.template workers</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编辑worker文件</span></span><br><span class="line">vim workers</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将里面的localhost删除, 追加</span></span><br><span class="line">node1</span><br><span class="line">node2</span><br><span class="line">node3</span><br><span class="line">到workers文件内</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">功能: 这个文件就是指示了  当前SparkStandAlone环境下, 有哪些worker</span></span><br></pre></td></tr></table></figure>
-
-
-<p>配置spark-env.sh文件</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1. 改名</span></span><br><span class="line">mv spark-env.sh.template spark-env.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2. 编辑spark-env.sh, 在底部追加如下内容</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 设置JAVA安装目录</span></span></span><br><span class="line">JAVA_HOME=/export/server/jdk</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># HADOOP软件配置文件目录，读取HDFS上文件和运行YARN集群</span></span></span><br><span class="line">HADOOP_CONF_DIR=/export/server/hadoop/etc/hadoop</span><br><span class="line">YARN_CONF_DIR=/export/server/hadoop/etc/hadoop</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 指定spark老大Master的IP和提交任务的通信端口</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">告知Spark的master运行在哪个机器上</span></span><br><span class="line">export SPARK_MASTER_HOST=node1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">告知sparkmaster的通讯端口</span></span><br><span class="line">export SPARK_MASTER_PORT=7077</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">告知spark master的 webui端口</span></span><br><span class="line">SPARK_MASTER_WEBUI_PORT=8080</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">worker cpu可用核数</span></span><br><span class="line">SPARK_WORKER_CORES=1</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">worker可用内存</span></span><br><span class="line">SPARK_WORKER_MEMORY=1g</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">worker的工作通讯地址</span></span><br><span class="line">SPARK_WORKER_PORT=7078</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">worker的 webui地址</span></span><br><span class="line">SPARK_WORKER_WEBUI_PORT=8081</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment"># 设置历史服务器</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置的意思是  将spark程序运行的历史日志 存到hdfs的/sparklog文件夹中</span></span><br><span class="line">SPARK_HISTORY_OPTS=&quot;-Dspark.history.fs.logDirectory=hdfs://node1:8020/sparklog/ -Dspark.history.fs.cleaner.enabled=true&quot;</span><br></pre></td></tr></table></figure>
-
-
-<p>注意, 上面的配置的路径 要根据你自己机器实际的路径来写</p>
-<p>在HDFS上创建程序运行历史记录存放的文件夹:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hadoop fs -mkdir /sparklog</span><br><span class="line">hadoop fs -chmod 777 /sparklog</span><br></pre></td></tr></table></figure>
-
-
-<p>配置spark-defaults.conf文件</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1. 改名</span></span><br><span class="line">mv spark-defaults.conf.template spark-defaults.conf</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2. 修改内容, 追加如下内容</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开启spark的日期记录功能</span></span><br><span class="line">spark.eventLog.enabled 	true</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置spark日志记录的路径</span></span><br><span class="line">spark.eventLog.dir	 hdfs://node1:8020/sparklog/ </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设置spark日志是否启动压缩</span></span><br><span class="line">spark.eventLog.compress 	true</span><br></pre></td></tr></table></figure>
-
-
-<p>配置log4j.properties 文件 [可选配置]</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1. 改名</span></span><br><span class="line">mv log4j.properties.template log4j.properties</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2. 修改内容 参考下图</span></span><br></pre></td></tr></table></figure>
-<p><img src="/../image/10.jpg"></p>
-<blockquote>
-<p>这个文件的修改不是必须的,  为什么修改为WARN. 因为Spark是个话痨</p>
-<p>会疯狂输出日志, 设置级别为WARN 只输出警告和错误日志, 不要输出一堆废话.</p>
-</blockquote>
-<h3 id="将Spark安装文件夹-分发到其它的服务器上"><a href="#将Spark安装文件夹-分发到其它的服务器上" class="headerlink" title="将Spark安装文件夹  分发到其它的服务器上"></a>将Spark安装文件夹  分发到其它的服务器上</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp -r spark-3.1.2-bin-hadoop3.2 node2:/export/server/</span><br><span class="line">scp -r spark-3.1.2-bin-hadoop3.2 node3:/export/server/</span><br></pre></td></tr></table></figure>
-
-
-<p>不要忘记, 在node2和node3上 给spark安装目录增加软链接</p>
-<p><code>ln -s /export/server/spark-3.1.2-bin-hadoop3.2 /export/server/spark</code></p>
-<h3 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h3><p>检查每台机器的:</p>
-<p>JAVA_HOME</p>
-<p>SPARK_HOME</p>
-<p>PYSPARK_PYTHON</p>
-<p>等等 环境变量是否正常指向正确的目录</p>
-<h3 id="启动历史服务器"><a href="#启动历史服务器" class="headerlink" title="启动历史服务器"></a>启动历史服务器</h3><p><code>sbin/start-history-server.sh</code></p>
-<h3 id="启动Spark的Master和Worker进程"><a href="#启动Spark的Master和Worker进程" class="headerlink" title="启动Spark的Master和Worker进程"></a>启动Spark的Master和Worker进程</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动全部master和worker</span></span><br><span class="line">sbin/start-all.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者可以一个个启动:</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动当前机器的master</span></span><br><span class="line">sbin/start-master.sh</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动当前机器的worker</span></span><br><span class="line">sbin/start-worker.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止全部</span></span><br><span class="line">sbin/stop-all.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止当前机器的master</span></span><br><span class="line">sbin/stop-master.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">停止当前机器的worker</span></span><br><span class="line">sbin/stop-worker.sh</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="查看Master的WEB-UI"><a href="#查看Master的WEB-UI" class="headerlink" title="查看Master的WEB UI"></a>查看Master的WEB UI</h3><p>默认端口master我们设置到了8080</p>
-<p>如果端口被占用, 会顺延到8081 …;8082… 8083… 直到申请到端口为止</p>
-<p>可以在日志中查看, 具体顺延到哪个端口上:</p>
-<p><code>Service &#39;MasterUI&#39; could not bind on port 8080. Attempting port 8081.</code><br>​</p>
-<p><img src="/../image/11.jpg"></p>
-<h3 id="连接到StandAlone集群"><a href="#连接到StandAlone集群" class="headerlink" title="连接到StandAlone集群"></a>连接到StandAlone集群</h3><h4 id="bin-x2F-pyspark-1"><a href="#bin-x2F-pyspark-1" class="headerlink" title="bin&#x2F;pyspark"></a>bin&#x2F;pyspark</h4><p>执行:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bin/pyspark --master spark://node1:7077</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">通过--master选项来连接到 StandAlone集群</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">如果不写--master选项, 默认是<span class="built_in">local</span>模式运行</span></span><br></pre></td></tr></table></figure>
-<p><img src="/../image/12.jpg"></p>
-<h4 id="bin-x2F-spark-shell"><a href="#bin-x2F-spark-shell" class="headerlink" title="bin&#x2F;spark-shell"></a>bin&#x2F;spark-shell</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bin/spark-shell --master spark://node1:7077</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">同样适用--master来连接到集群使用</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 测试代码</span></span><br><span class="line">sc.parallelize(<span class="type">Array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)).map(x=&gt; x + <span class="number">1</span>).collect()</span><br></pre></td></tr></table></figure>
-
-
-<h4 id="bin-x2F-spark-submit-PI-1"><a href="#bin-x2F-spark-submit-PI-1" class="headerlink" title="bin&#x2F;spark-submit (PI)"></a>bin&#x2F;spark-submit (PI)</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bin/spark-submit --master spark://node1:7077 /export/server/spark/examples/src/main/python/pi.py 100</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">同样使用--master来指定将任务提交到集群运行</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="查看历史服务器WEB-UI"><a href="#查看历史服务器WEB-UI" class="headerlink" title="查看历史服务器WEB UI"></a>查看历史服务器WEB UI</h3><p>历史服务器的默认端口是: 18080</p>
-<p>我们启动在node1上, 可以在浏览器打开:</p>
-<p><code>node1:18080</code>来进入到历史服务器的WEB UI上.<br><img src="/../image/13.jpg"></p>
-<h1 id="Spark-StandAlone-HA-环境搭建"><a href="#Spark-StandAlone-HA-环境搭建" class="headerlink" title="Spark StandAlone HA 环境搭建"></a>Spark StandAlone HA 环境搭建</h1><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><blockquote>
-<p>前提: 确保Zookeeper 和 HDFS 均已经启动</p>
-</blockquote>
-<p>先在<code>spark-env.sh</code>中, 删除: <code>SPARK_MASTER_HOST=node1</code></p>
-<p>原因: 配置文件中固定master是谁, 那么就无法用到zk的动态切换master功能了.</p>
-<p>在<code>spark-env.sh</code>中, 增加:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">SPARK_DAEMON_JAVA_OPTS=&quot;-Dspark.deploy.recoveryMode=ZOOKEEPER -Dspark.deploy.zookeeper.url=node1:2181,node2:2181,node3:2181 -Dspark.deploy.zookeeper.dir=/spark-ha&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">spark.deploy.recoveryMode 指定HA模式 基于Zookeeper实现</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定Zookeeper的连接地址</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">指定在Zookeeper中注册临时节点的路径</span></span><br></pre></td></tr></table></figure>
-
-
-<p>将spark-env.sh 分发到每一台服务器上</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">scp spark-env.sh node2:/export/server/spark/conf/</span><br><span class="line">scp spark-env.sh node3:/export/server/spark/conf/</span><br></pre></td></tr></table></figure>
-
-
-<p>停止当前StandAlone集群</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sbin/stop-all.sh</span><br></pre></td></tr></table></figure>
-
-
-<p>启动集群:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在node1上 启动一个master 和全部worker</span></span><br><span class="line">sbin/start-all.sh</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意, 下面命令在node2上执行</span></span><br><span class="line">sbin/start-master.sh</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在node2上启动一个备用的master进程</span></span><br></pre></td></tr></table></figure>
-<p><img src="/../image/14.jpg"><br><img src="/../image/15.jpg"></p>
-<h2 id="master主备切换"><a href="#master主备切换" class="headerlink" title="master主备切换"></a>master主备切换</h2><p>提交一个spark任务到当前<code>alive</code>master上:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bin/spark-submit --master spark://node1:7077 /export/server/spark/examples/src/main/python/pi.py 1000</span><br></pre></td></tr></table></figure>
-
-
-<p>在提交成功后, 将alivemaster直接kill掉</p>
-<p>不会影响程序运行:<br><img src="/../image/16.jpg"><br>当新的master接收集群后, 程序继续运行, 正常得到结果.</p>
-<blockquote>
-<p>结论 HA模式下, 主备切换 不会影响到正在运行的程序.</p>
-<p>最大的影响是 会让它中断大约30秒左右.</p>
-</blockquote>
-<h1 id="Spark-On-YARN-环境搭建"><a href="#Spark-On-YARN-环境搭建" class="headerlink" title="Spark On YARN 环境搭建"></a>Spark On YARN 环境搭建</h1><h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p>确保:</p>
-<ul>
-<li>HADOOP_CONF_DIR</li>
-<li>YARN_CONF_DIR</li>
-</ul>
-<p>在spark-env.sh 以及 环境变量配置文件中即可<br>​</p>
-<h2 id="连接到YARN中"><a href="#连接到YARN中" class="headerlink" title="连接到YARN中"></a>连接到YARN中</h2><h3 id="bin-x2F-pyspark-2"><a href="#bin-x2F-pyspark-2" class="headerlink" title="bin&#x2F;pyspark"></a>bin&#x2F;pyspark</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bin/pyspark --master yarn --deploy-mode client|cluster</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">--deploy-mode 选项是指定部署模式, 默认是 客户端模式</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">client就是客户端模式</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">cluster就是集群模式</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">--deploy-mode 仅可以用在YARN模式下</span></span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>注意: 交互式环境 pyspark  和 spark-shell  无法运行 cluster模式</p>
-</blockquote>
-<h3 id="bin-x2F-spark-shell-1"><a href="#bin-x2F-spark-shell-1" class="headerlink" title="bin&#x2F;spark-shell"></a>bin&#x2F;spark-shell</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bin/spark-shell --master yarn --deploy-mode client|cluster</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>注意: 交互式环境 pyspark  和 spark-shell  无法运行 cluster模式</p>
-</blockquote>
-<h3 id="bin-x2F-spark-submit-PI-2"><a href="#bin-x2F-spark-submit-PI-2" class="headerlink" title="bin&#x2F;spark-submit (PI)"></a>bin&#x2F;spark-submit (PI)</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">bin/spark-submit --master yarn --deploy-mode client|cluster /xxx/xxx/xxx.py 参数</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="spark-submit-和-spark-shell-和-pyspark的相关参数"><a href="#spark-submit-和-spark-shell-和-pyspark的相关参数" class="headerlink" title="spark-submit 和 spark-shell 和 pyspark的相关参数"></a>spark-submit 和 spark-shell 和 pyspark的相关参数</h2><p>参见: 附2<br>​</p>
-<h1 id="附1-Anaconda-On-Linux-安装-单台服务器"><a href="#附1-Anaconda-On-Linux-安装-单台服务器" class="headerlink" title="附1 Anaconda On Linux 安装 (单台服务器)"></a>附1 Anaconda On Linux 安装 (单台服务器)</h1><h2 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h2><p>上传安装包:</p>
-<p>上传: 资料中提供的<code>Anaconda3-2021.05-Linux-x86_64.sh</code>文件到Linux服务器上</p>
-<p>安装:</p>
-<p><code>sh ./Anaconda3-2021.05-Linux-x86_64.sh</code><br><img src="/../image/17.jpg"><br><img src="/../image/18.jpg"><br><img src="/../image/19.jpg"><br><img src="/../image/20.jpg"><br><img src="/../image/21.jpg"><br>输入yes后就安装完成了.</p>
-<p>安装完成后, <code>退出finalshell 重新进来</code>:<br><img src="/../image/22.jpg"></p>
-<p>看到这个Base开头表明安装好了.</p>
-<p>base是默认的虚拟环境.<br>​</p>
-<h2 id="国内源"><a href="#国内源" class="headerlink" title="国内源"></a>国内源</h2><p>如果你安装好后, 没有出现base, 可以打开:&#x2F;root&#x2F;.condarc这个文件, 追加如下内容:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - defaults</span><br><span class="line">show_channel_urls: true</span><br><span class="line">default_channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><br><span class="line">custom_channels:</span><br><span class="line">  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="附2-spark-submit和pyspark相关参数"><a href="#附2-spark-submit和pyspark相关参数" class="headerlink" title="附2 spark-submit和pyspark相关参数"></a>附2 spark-submit和pyspark相关参数</h1><p>客户端工具我们可以用的有:</p>
-<ul>
-<li>bin&#x2F;pyspark: pyspark解释器spark环境</li>
-<li>bin&#x2F;spark-shell: scala解释器spark环境</li>
-<li>bin&#x2F;spark-submit: 提交jar包或Python文件执行的工具</li>
-<li>bin&#x2F;spark-sql: sparksql客户端工具</li>
-</ul>
-<p>这4个客户端工具的参数基本通用.</p>
-<p>以spark-submit 为例:</p>
-<p><code>bin/spark-submit --master spark://node1:7077 xxx.py</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Usage: spark-submit [options] &lt;app jar | python file | R file&gt; [app arguments]</span><br><span class="line">Usage: spark-submit --kill [submission ID] --master [spark://...]</span><br><span class="line">Usage: spark-submit --status [submission ID] --master [spark://...]</span><br><span class="line">Usage: spark-submit run-example [options] example-class [example args]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  --master MASTER_URL         spark://host:port, mesos://host:port, yarn,</span><br><span class="line">                              k8s://https://host:port, or local (Default: local[*]).</span><br><span class="line">  --deploy-mode DEPLOY_MODE   部署模式 client 或者 cluster 默认是client</span><br><span class="line">  --class CLASS_NAME          运行java或者scala class(for Java / Scala apps).</span><br><span class="line">  --name NAME                 程序的名字</span><br><span class="line">  --jars JARS                 Comma-separated list of jars to include on the driver</span><br><span class="line">                              and executor classpaths.</span><br><span class="line">  --packages                  Comma-separated list of maven coordinates of jars to include</span><br><span class="line">                              on the driver and executor classpaths. Will search the local</span><br><span class="line">                              maven repo, then maven central and any additional remote</span><br><span class="line">                              repositories given by --repositories. The format for the</span><br><span class="line">                              coordinates should be groupId:artifactId:version.</span><br><span class="line">  --exclude-packages          Comma-separated list of groupId:artifactId, to exclude while</span><br><span class="line">                              resolving the dependencies provided in --packages to avoid</span><br><span class="line">                              dependency conflicts.</span><br><span class="line">  --repositories              Comma-separated list of additional remote repositories to</span><br><span class="line">                              search for the maven coordinates given with --packages.</span><br><span class="line">  --py-files PY_FILES         指定Python程序依赖的其它python文件</span><br><span class="line">  --files FILES               Comma-separated list of files to be placed in the working</span><br><span class="line">                              directory of each executor. File paths of these files</span><br><span class="line">                              in executors can be accessed via SparkFiles.get(fileName).</span><br><span class="line">  --archives ARCHIVES         Comma-separated list of archives to be extracted into the</span><br><span class="line">                              working directory of each executor.</span><br><span class="line"></span><br><span class="line">  --conf, -c PROP=VALUE       手动指定配置</span><br><span class="line">  --properties-file FILE      Path to a file from which to load extra properties. If not</span><br><span class="line">                              specified, this will look for conf/spark-defaults.conf.</span><br><span class="line"></span><br><span class="line">  --driver-memory MEM         Driver的可用内存(Default: 1024M).</span><br><span class="line">  --driver-java-options       Driver的一些Java选项</span><br><span class="line">  --driver-library-path       Extra library path entries to pass to the driver.</span><br><span class="line">  --driver-class-path         Extra class path entries to pass to the driver. Note that</span><br><span class="line">                              jars added with --jars are automatically included in the</span><br><span class="line">                              classpath.</span><br><span class="line"></span><br><span class="line">  --executor-memory MEM       Executor的内存 (Default: 1G).</span><br><span class="line"></span><br><span class="line">  --proxy-user NAME           User to impersonate when submitting the application.</span><br><span class="line">                              This argument does not work with --principal / --keytab.</span><br><span class="line"></span><br><span class="line">  --help, -h                  显示帮助文件</span><br><span class="line">  --verbose, -v               Print additional debug output.</span><br><span class="line">  --version,                  打印版本</span><br><span class="line"></span><br><span class="line"> Cluster deploy mode only(集群模式专属):</span><br><span class="line">  --driver-cores NUM          Driver可用的的CPU核数(Default: 1).</span><br><span class="line"></span><br><span class="line"> Spark standalone or Mesos with cluster deploy mode only:</span><br><span class="line">  --supervise                 如果给定, 可以尝试重启Driver</span><br><span class="line"></span><br><span class="line"> Spark standalone, Mesos or K8s with cluster deploy mode only:</span><br><span class="line">  --kill SUBMISSION_ID        指定程序ID kill</span><br><span class="line">  --status SUBMISSION_ID      指定程序ID 查看运行状态</span><br><span class="line"></span><br><span class="line"> Spark standalone, Mesos and Kubernetes only:</span><br><span class="line">  --total-executor-cores NUM  整个任务可以给Executor多少个CPU核心用</span><br><span class="line"></span><br><span class="line"> Spark standalone, YARN and Kubernetes only:</span><br><span class="line">  --executor-cores NUM        单个Executor能使用多少CPU核心</span><br><span class="line"></span><br><span class="line"> Spark on YARN and Kubernetes only(YARN模式下):</span><br><span class="line">  --num-executors NUM         Executor应该开启几个</span><br><span class="line">  --principal PRINCIPAL       Principal to be used to login to KDC.</span><br><span class="line">  --keytab KEYTAB             The full path to the file that contains the keytab for the</span><br><span class="line">                              principal specified above.</span><br><span class="line"></span><br><span class="line"> Spark on YARN only:</span><br><span class="line">  --queue QUEUE_NAME          指定运行的YARN队列(Default: &quot;default&quot;).</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h1 id="附3-Windows系统配置Anaconda"><a href="#附3-Windows系统配置Anaconda" class="headerlink" title="附3 Windows系统配置Anaconda"></a>附3 Windows系统配置Anaconda</h1><h2 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h2><p>打开资料中提供的:Anaconda3-2021.05-Windows-x86_64.exe文件,或者去官网下载:[<a href="https://www.anaconda.com/products/individual#Downloads]">https://www.anaconda.com/products/individual#Downloads]</a><br>​</p>
-<p>打开后,一直点击<code>Next</code>下一步即可:<br><img src="/../image/23.jpg" alt="image.png"><br><img src="/../image/24.jpg" alt="image.png"><br>如果想要修改安装路径, 可以修改<br><img src="/../image/25.jpg" alt="image.png"><br>不必勾选<br><img src="/../image/26.jpg" alt="image.png"><br>最终点击Finish完成安装</p>
-<p>打开开始菜单, 搜索Anaconda<br><img src="/../image/27.jpg" alt="image.png"><br>出现如图的程序, 安装成功.</p>
-<p>打开 <code>Anaconda Prompt</code>程序:<br><img src="/../image/28.jpg" alt="image.png"><br>出现<code>base</code>说明安装正确.</p>
-<h2 id="配置国内源"><a href="#配置国内源" class="headerlink" title="配置国内源"></a>配置国内源</h2><p>Anaconda默认源服务器在国外, 网速比较慢, 配置国内源加速网络下载.<br>​</p>
-<p>打开上图中的 <code>Anaconda Prompt</code>程序:<br>执行:<br><code>conda config --set show_channel_urls yes</code><br>​</p>
-<p>然后用记事本打开:<br><code>C:\Users\用户名\.condarc</code>文件, 将如下内容替换进文件内,保存即可:</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">channels:</span><br><span class="line">  - defaults</span><br><span class="line">show_channel_urls: true</span><br><span class="line">default_channels:</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span><br><span class="line">  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span><br><span class="line">custom_channels:</span><br><span class="line">  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br><span class="line">  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建虚拟环境 pyspark, 基于Python 3.8</span></span><br><span class="line">conda create -n pyspark python=3.8</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">切换到虚拟环境内</span></span><br><span class="line">conda activate pyspark</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在虚拟环境内安装包</span></span><br><span class="line">pip install pyhive pyspark jieba -i https://pypi.tuna.tsinghua.edu.cn/simple </span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
+    <url>/2023/06/08/Spark%E8%AF%BE%E7%A8%8B%E5%85%A8%E6%B5%81%E7%A8%8B%E9%85%8D%E7%BD%AEspark%20local%20/</url>
+    <content><![CDATA[<h1 id="Spark-local-部署"><a href="#Spark-local-部署" class="headerlink" title="Spark(local)部署"></a>Spark(local)部署</h1><h1 id="一、回顾认识Spark-Local"><a href="#一、回顾认识Spark-Local" class="headerlink" title="一、回顾认识Spark-Local"></a>一、回顾认识Spark-Local</h1><p>Spark 是由一个强大而活跃的开源社区开发和维护的，是一个用来实现快速，通用的集群计算平台，适用于各种各样原先需要多种不同的分布式平台的场景，包括批处理，迭代算法，交互式查询，流处理。通过在一个统一的框架下支持这些不同的计算，spark使我们可以简单而低耗地把各种处理流程整合在一起。具备 SQL、统计、预测建模（机器学习）等方面的经验，以及一定的python，matlab，R语言能力的数据科学家对数据进行分析，以回答问题或发现一些潜在规律。</p>
+<p>Spark的架构角色 - 理解<br>YARN主要有4类角色,从2个层面去看:</p>
+<h3 id="资源管理层面"><a href="#资源管理层面" class="headerlink" title="资源管理层面"></a>资源管理层面</h3><p>集群资源管理者(Master):ResourceManager<br>单机资源管理者(Worker):NodeManager </p>
+<h3 id="任务计算层面"><a href="#任务计算层面" class="headerlink" title="任务计算层面"></a>任务计算层面</h3><p>单任务管理者(Master):ApplicationMaster<br>单任务执行者(Worker):Task(容器内计算框架的工作角色)</p>
+<p><img src="/../image-local/1.png"></p>
+<p><img src="/../image-local/2.png"></p>
+<h3 id="Spark提供多种运行模式"><a href="#Spark提供多种运行模式" class="headerlink" title="Spark提供多种运行模式"></a>Spark提供多种运行模式</h3><p>本地模式(单机)<br>Standalone模式(集群)<br>Hadoop YARN模式(集群)<br>Kubernetes模式(容器集群)</p>
+<p>综上我们可以把Spark任务的运行，运行方式可分为三大类。即本地运行，集群运行和云模式，在此节我们聚焦到Spark的本地运行模式。</p>
+<h1 id="二、Spark-Local基本原理"><a href="#二、Spark-Local基本原理" class="headerlink" title="二、Spark-Local基本原理"></a>二、Spark-Local基本原理</h1><p>Spark在本地运行模式一般在开发测试时使用，该模式通过在本地的一个JVM进程中同时运行driver和1个executor进程，实现Spark任务的本地运行。其本质:启动一个JVM Process进程(一个进程里面有多个线程),执行任务Task<br>	Local模式可以限制模拟Spark集群环境的线程数量, 即Local[N] 或 Local[<em>]<br>	其中N代表可以使用N个线程,每个线程拥有一个cpu core。如果不指定N, 则默认是1个线程(该线程有1个core)。 通常Cpu有几个Core,就指定几个线程,最大化利用计算能力。<br>	如果是local[</em>],则代表 Run Spark locally with as many worker threads as logical cores on your machine.按照Cpu最多的Cores设置线程数。</p>
+<p><img src="/../image-local/3.png"></p>
+<p>在Local运行模式中，Driver和Executor运行在同一个节点的同一个JVM中。在Local模式下，只启动了一个Executor。根据不同的Master URL，Executor中可以启动不同的工作线程，用于执行Task。Local模式Driver和Executor关系</p>
+<p><img src="/../image-local/4.png"></p>
+<h3 id="Local-下的角色分布"><a href="#Local-下的角色分布" class="headerlink" title="Local 下的角色分布:"></a>Local 下的角色分布:</h3><p>	资源管理:<br>Master:Local进程本身<br>Worker:Local进程本身<br>	任务执行:<br>Driver:Local进程本身<br>Executor:不存在,没有独立的Executor角色, 由Local进程(也就是Driver)内的线程提供计算能力<br>PS: Driver也算一种特殊的Executor, 只不过多数时候, 我们将Executor当做纯Worker对待, 这样和Driver好区分(一类是管理 一类是工人) </p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h4><p>Local模式只能运行一个Spark程序, 如果执行多个Spark程序, 那就是由多个相互独立的Local进程在执行</p>
+<p><img src="/../image-local/5..png"></p>
+<h1 id="三、Spark-Local基本配置"><a href="#三、Spark-Local基本配置" class="headerlink" title="三、Spark-Local基本配置"></a>三、Spark-Local基本配置</h1><p>###1. 课程服务器环境：<br>使用三台Linux虚拟机服务器来学习, 三台虚拟机的功能分配是:<br>node1: Master(HDFS\YARN\Spark) 和 Worker(HDFS\ YARN\ Spark)<br>node2: Worker(HDFS\ YARN\ Spark)<br>node3: Worker(HDFS\ YARN\ Spark) 和 Hive</p>
+<h3 id="2-集群环境的搭建："><a href="#2-集群环境的搭建：" class="headerlink" title="2.集群环境的搭建："></a>2.集群环境的搭建：</h3><p>PYTHON 推荐3.8<br>JDK 1.8<br>操作系统CentOS 7<br>已部署好Hadoop集群(HDFS\YARN) </p>
+<p><img src="/../image-local/6.png"></p>
+<p><img src="/../image-local/7.png"></p>
+<h3 id="3-安装搭建"><a href="#3-安装搭建" class="headerlink" title="3.安装搭建"></a>3.安装搭建</h3><p>本实践的Python环境需要安装到Linux(虚拟机)和Windows(本机)上</p>
+<h5 id="3-1-Anaconda-On-Linux-安装"><a href="#3-1-Anaconda-On-Linux-安装" class="headerlink" title="3. 1 Anaconda On Linux 安装"></a>3. 1 Anaconda On Linux 安装</h5><p>安装上传安装包: 上传: 资料中提供的Anaconda3-2021.05-Linux-x86_64.sh文件到Linux服务器上安装:<br>sh .&#x2F;Anaconda3-2021.05-Linux-x86_64.sh</p>
+<p><img src="/../image-local/8.png"></p>
+<p>安装完成后, 退出终端， 重新进来，看到这个Base开头表明安装好了（base是默认的虚拟环境）。</p>
+<h5 id="3-2-Spark安装"><a href="#3-2-Spark安装" class="headerlink" title="3. 2 Spark安装"></a>3. 2 Spark安装</h5><p>（1）解压下载的Spark安装包<br>tar -zxvf spark-3.2.0-bin-hadoop3.2.tgz -C &#x2F;export&#x2F;server&#x2F;</p>
+<p><img src="/../image-local/9.png"></p>
+<p>（2）由于spark目录名称很⻓, 给其一个软链接:<br>ln -s &#x2F;export&#x2F;server&#x2F;spark-3.2.0-bin-hadoop3.2 &#x2F;export&#x2F;server&#x2F;spark</p>
+<p><img src="/../image-local/10.png"></p>
+<p>（3）环境变量<br>配置Spark由如下5个环境变量需要设置<br>	SPARK_HOME: 表示Spark安装路径在哪里<br>	PYSPARK_PYTHON: 表示Spark想运行Python程序, 那么去哪里找python执行器<br>	JAVA_HOME: 告知Spark Java在哪里<br>	HADOOP_CONF_DIR: 告知Spark Hadoop的配置文件在哪里<br>	HADOOP_HOME: 告知Spark  Hadoop安装在哪里</p>
+<p><img src="/../image-local/11.png"></p>
+<h1 id="四、Spark-Local测试训练"><a href="#四、Spark-Local测试训练" class="headerlink" title="四、Spark-Local测试训练"></a>四、Spark-Local测试训练</h1><h2 id="测试一：bin-x2F-pyspark"><a href="#测试一：bin-x2F-pyspark" class="headerlink" title="测试一：bin&#x2F;pyspark"></a>测试一：bin&#x2F;pyspark</h2><p>bin&#x2F;pyspark<br>bin&#x2F;pyspark 程序, 可以提供一个  交互式的 Python解释器环境, 在这里面可以写普通python代码, 以及spark代码</p>
+<p><img src="/../image-local/12.png"></p>
+<p>在这个环境内, 可以运行spark代码<br>图中的: parallelize 和 map 都是spark提供的API<br>sc.parallelize([1,2,3,4,5]).map(lambda x: x + 1).collect() </p>
+<p><img src="/../image-local/13.png"></p>
+<h2 id="测试二：WEB-UI-4040"><a href="#测试二：WEB-UI-4040" class="headerlink" title="测试二：WEB UI (4040)"></a>测试二：WEB UI (4040)</h2><p>（1）Spark程序在运行的时候, 会绑定到机器的4040端口上.<br>如果4040端口被占用, 会顺延到4041 … 4042…</p>
+<p><img src="/../image-local/14.png"></p>
+<p>（2）4040端口是一个WEBUI端口, 可以在浏览器内打开:</p>
+<p><img src="/../image-local/15.png"></p>
+<p>（3）打开监控页面后, 可以发现 在程序内仅有一个Driver<br>因为我们是Local模式, Driver即管理 又 干活.<br>同时, 输入jps</p>
+<p><img src="/../image-local/16.png"></p>
+<p>可以看到local模式下的唯一进程存在，这个进程 即是master也是worker</p>
+<h2 id="测试三：bin-x2F-spark-submit-PI"><a href="#测试三：bin-x2F-spark-submit-PI" class="headerlink" title="测试三：bin&#x2F;spark-submit (PI)"></a>测试三：bin&#x2F;spark-submit (PI)</h2><p>作用: 提交指定的Spark代码到Spark环境中运行这个仅作为了解即可, 因为这个是用于scala语言的解释器环境<br>bin&#x2F;spark-submit (PI)<br>作用: 提交指定的Spark代码到Spark环境中运行<br>使用方法:<br>语法：bin&#x2F;spark-submit [可选的一些选项] jar包或者python代码的路径 [代码的参数]<br>示例：bin&#x2F;spark-submit &#x2F;export&#x2F;server&#x2F;spark&#x2F;examples&#x2F;src&#x2F;main&#x2F;python&#x2F;pi.py 10<br>此案例 运行Spark官方所提供的示例代码 来计算圆周率值.  后面的10 是主函数接受的参数, 数字越高, 计算圆周率越准确.</p>
+<p><img src="/../image-local/17.png"></p>
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p><img src="/../image-local/18.png"></p>
+<p>了解：bin&#x2F;spark-shell<br>同样是一个解释器环境, 和bin&#x2F;pyspark不同的是, 这个解释器环境 运行的不是python代码, 而是scala程序代码</p>
+<p><img src="/../image-local/19.png"></p>
+<p>如上图，在不是合适的地方无法识别语法准确，这个仅作为了解即可, 因为这个是用于scala语言的解释器环境</p>
+<h1 id="五、Spark-Local总结"><a href="#五、Spark-Local总结" class="headerlink" title="五、Spark-Local总结"></a>五、Spark-Local总结</h1><p>Local模式就是以一个独立进程配合其内部线程来提供完成Spark运行时环境Local模式可以通过spark-shell&#x2F;pyspark&#x2F;spark-submit等来开启。是一个交互式的解释器执行环境环境启动后就得到了一个LocalSpark环境可以运行Python代码去进行Spark计算，类似Python自带解释器。</p>
+<p>Spark的任务在运行后，会在Driver所在机器绑定到4040端口提供当前任务的监控页面供查看。</p>
+<h3 id="综上："><a href="#综上：" class="headerlink" title="综上："></a>综上：</h3><p>Spark local模式被称为Local模式，是用单机的多个线程来模拟Spark分布式计算，通常用来验证开发出来的应用程序逻辑上有没有问题，运行该模式使用简单，速度快、通用性强，只需要把Spark的安装包解压后，改一些常用的配置即可使用，而不用启动Spark的Master、Worker守护进程，也不用启动Hadoop的各服务，这是和其他模式的区别哦，要记住才能理解。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>docker 部署</title>
+    <url>/2023/06/07/spark-docker/</url>
+    <content><![CDATA[<h1 id="docker配置"><a href="#docker配置" class="headerlink" title="docker配置"></a>docker配置</h1><h3 id="1-初始化环境"><a href="#1-初始化环境" class="headerlink" title="1.初始化环境"></a>1.初始化环境</h3><ol>
+<li>   在安装docker之前，先初始化机器环境，如果之前安装过旧版本的docker，应该先使用命令进行卸载。（我这里之前没有安装过旧版本的docker，就不进行写在操作了）</li>
+</ol>
+<h3 id="2-进行yum源配置。"><a href="#2-进行yum源配置。" class="headerlink" title="2.进行yum源配置。"></a>2.进行yum源配置。</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mv/etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br><span class="line"></span><br><span class="line">wget-O/etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line">wget-O/etc/yum.repos.d/epel.repo</span><br><span class="line">   http://mirrors.aliyun.com/repo/epel-7.repo</span><br><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/1.jpg" alt="图 1"></p>
+<h3 id="3-安装docker，首先需要虚拟机联网，安装yum工具"><a href="#3-安装docker，首先需要虚拟机联网，安装yum工具" class="headerlink" title="3.安装docker，首先需要虚拟机联网，安装yum工具"></a>3.安装docker，首先需要虚拟机联网，安装yum工具</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install -y yum-utils \</span><br><span class="line">           device-mapper-persistent-data \</span><br><span class="line">lvm2--skip-broken</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/2.jpg" alt="图 2"></p>
+<h3 id="4-配置网卡转发。"><a href="#4-配置网卡转发。" class="headerlink" title="4.配置网卡转发。"></a>4.配置网卡转发。</h3><p>1.docker必须安装在centos7平台，内核版本不低于3.10在centos平台运行docker可能会遇见些告警信息，修改内核配置参数，打开内核转发功能</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#写入</span><br><span class="line">cat &lt;&lt;EOF &gt; /etc/sysctl.d/docker.conf</span><br><span class="line">net.bridge.bridge-nf-call-ip6tables = 1</span><br><span class="line">net.bridge.bridge-nf-call-iptables = 1</span><br><span class="line">net.ipv4.conf.default.rp_filter = 0</span><br><span class="line">net.ipv4.conf.all.rp_filter = 0</span><br><span class="line">net.ipv4.ip_forward=1</span><br><span class="line">EOF</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>2.重新加载内核参数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">modprobe br_netfilter</span><br><span class="line">sysctl -p /etc/sysctl.d/docker.conf</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/3.jpg" alt="图 3"></p>
+<h3 id="5-利用yum进行docker安装"><a href="#5-利用yum进行docker安装" class="headerlink" title="5.利用yum进行docker安装"></a>5.利用yum进行docker安装</h3><p>提前配置好yum仓库<br>1.阿里云自带仓库 2.阿里云提供的docker专属repo仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl-o/etc/yum.repos.d/docker-ce.repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line">cur-o/etc/yum.repos.d/Centos-7.repo </span><br><span class="line">http://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/4.jpg" alt="图 4"><br>#更新yum缓存<br><img src="/../image-docker/5.jpg" alt="图 5"><br>#可以直接yum安装docker了<br>#查看源中可用版本</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum list docker-ce --showduplicates | sort -r</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/6.jpg" alt="图 6"><br>#yum安装</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">yum install docker-ce -y</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/7.jpg" alt="图 7"><br>##查看docker版本，验证是否验证成功</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker -v</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/8.jpg" alt="图 8"></p>
+<h3 id="6-配置镜像加速器"><a href="#6-配置镜像加速器" class="headerlink" title="6.配置镜像加速器"></a>6.配置镜像加速器</h3><p>#用于加速镜像文件下载,选用阿里云镜像站</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p /etc/docker</span><br><span class="line">touch /etc/docker/daemon.json</span><br><span class="line">vim /etc/docker/daemon.json</span><br><span class="line">&#123;</span><br><span class="line">&quot;registry-mirrors&quot; : [</span><br><span class="line">&quot;https://8xpk5wnt.mirror.aliyuncs.com&quot;</span><br><span class="line">]</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/9.jpg" alt="图 9"></p>
+<h3 id="6-启动docker"><a href="#6-启动docker" class="headerlink" title="6.启动docker"></a>6.启动docker</h3><p>启动docker前，一定要关闭防火墙后！！</p>
+<p>关闭</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>禁止开机启动防火墙</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl disable firewalld</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/10.jpg" alt="图 10"><br><img src="/../image-docker/11.jpg" alt="图 11"><br><img src="/../image-docker/12.jpg" alt="图 12"><br>查看docker信息</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker info</span><br><span class="line">docker ps</span><br><span class="line">docker image-docker</span><br><span class="line">docker version</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/13.jpg" alt="图 13"><br><img src="/../image-docker/14.jpg" alt="图 14"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">## docker-client</span><br><span class="line">which docker</span><br><span class="line">## docker daemon</span><br><span class="line">ps aux |grep docker</span><br><span class="line">## containerd</span><br><span class="line">ps aux|grep containerd</span><br><span class="line">systemctl status containerd</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/15.jpg" alt="图 15"></p>
+<h3 id="7-docker初体验"><a href="#7-docker初体验" class="headerlink" title="7.docker初体验"></a>7.docker初体验</h3><p>#1.查看本地的docker镜像有哪些</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker image ls 或 docker image-docker</span><br></pre></td></tr></table></figure>
+<p>#2.可选择删除旧版本</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker rmi 镜像id</span><br></pre></td></tr></table></figure>
+<p>#3.搜索一下远程仓库中的镜像文件是否存在</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker search nginx</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/16.jpg" alt="图 16"><br>#4.拉取，下载镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docerk pull nginx</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/17.jpg" alt="图 17"><br>#5.再次查看镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker image-docker</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/18.jpg" alt="图 18"><br>#6.运行镜像，运行出具体内容，在容器中就跑着一个nginx服务</p>
+<p>docker run 参数 镜像的名字&#x2F;id</p>
+<p>#-d 后台运行容器</p>
+<p>#-p 80:80 端口映射，宿主机端口：容器内端口，访问宿主机的80端口，也就访问到容器中的80端口</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d -p 80:80 nginx</span><br></pre></td></tr></table></figure>
+<p>#会返回一个容器的id</p>
+<p>#7.查看容器是否在运行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/19.jpg" alt="图 19"><br>#8.访问网站<br>192.168.88.163:80<br><img src="/../image-docker/20.jpg" alt="图 20"></p>
+<h3 id="8-获取镜像"><a href="#8-获取镜像" class="headerlink" title="8.获取镜像"></a>8.获取镜像</h3><p>1.获取镜像，镜像托管仓库，好比yum源一样<br>默认的docker仓库是，dockerhub ，有大量的优质的镜像，以及用户自己上传的镜像 centos容器 vim nginx 。。提交为镜像，上传到dockehub</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker search centos</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/21.jpg" alt="图 21"><br>我们在获取redis镜像的时候，发现下载了多行信息，最终仅得到了一个完整的镜像文件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@node3 ~]# docker pull redis</span><br><span class="line">[root@node3 ~]# docker image-docker</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/22.jpg" alt="图 22"><br><img src="/../image-docker/23.jpg" alt="图 23"><br>2.查看本地的镜像文件有哪些</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker image-docker </span><br><span class="line">docker image ls</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/24.jpg" alt="图 24"><br>3.下载docker镜像</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull centos # 默认的是 centos:latest</span><br><span class="line">docker pull centos:7.8.2003</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/25.jpg" alt="图 25"><br>4.查看docker镜像的存储路径</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker info |grep Root</span><br><span class="line">#Docker Root Dir: /var/lib/docker</span><br><span class="line">#具体位置</span><br><span class="line">ls /var/lib/docker/image/overlay2/imagedb/content/sha256</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/26.jpg" alt="图 26"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dockerimage-docker</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/27.jpg" alt="图 27"><br>5.该文件作用是</p>
+<p>记录 镜像 和容器的配置关系</p>
+<p>使用不同的镜像，生成容器# -it 开启一个交互式的终端–rm 容器退出时删除该容器</p>
+<p>#再运行一个7.8centos<br><img src="/../image-docker/28.jpg" alt="图 28"><br>9.#1.查看所有镜像<br><img src="/../image-docker/29.jpg" alt="图 29"><br>#2.查看具体镜像<br><img src="/../image-docker/30.jpg" alt="图 30"><br>#3.指定tag查看<br><img src="/../image-docker/31.jpg" alt="图 31"><br>#4.只列出镜像id<br>-q –quiet 只列出id<br><img src="/../image-docker/32.jpg" alt="图 32"><br>#5.格式化显示镜像</p>
+<p>这是docker的模板语言，–format</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker image-docker --format &quot;&#123;&#123;.ID&#125;&#125;--&#123;&#123;.Repository&#125;&#125;&quot;</span><br><span class="line">[root@node3 ~]# docker image-docker --format &quot;&#123;&#123;.ID&#125;&#125;--&#123;&#123;.Repository&#125;&#125;&quot;</span><br><span class="line">605c77e624dd--nginx</span><br><span class="line">7614ae9453d1--redis</span><br><span class="line">5d9483f9a7b2—mysql</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/33.jpg" alt="图 33"><br>2.运行容器，且进入容器内，且在容器内执行某个命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@node1 ~]# docker run -it centos:7.8.2003 sh</span><br><span class="line">sh-4.2#</span><br><span class="line">sh-4.2#</span><br><span class="line">sh-4.2# cat /etc/redhat-release</span><br><span class="line">Centos Linux release 7.8.2003 (Core)</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/34.jpg" alt="图 34"><br>3.开启一个容器，让它帮你运行某个程序，属于前台运行，会卡住一个终端</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@node1 ~]# docker run centos:7.8.2003 ping baidu.com</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/35.jpg" alt="图 35"><br>4.运行一个活着的容器，docker ps可以看到的容器</p>
+<p>-d 参数，让容器在后台跑着 (针对宿主机而言)</p>
+<p>返回容器id</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d centos:7.8.2003 ping baidu.com</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/36.jpg" alt="图 36"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># -d 后台运行</span><br><span class="line">docker run -d --rm --name pythonav centos:7.8.2003 pingpythonav.cn</span><br><span class="line"></span><br><span class="line">Dockerps</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/37.jpg" alt="图 37"><br><img src="/../image-docker/38.jpg" alt="图 38"><br>6.查看容器日志的玩法，刷新日志</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># docker logs -f 容器id</span><br><span class="line">docker logs -f f2598cb26363</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/39.jpg" alt="图 39"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#查看最后五条</span><br><span class="line">docker logs f2598cb26363 | tail -5</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/40.jpg" alt="图 40"><br>8.查看容器的详细信息，用于高级的调试</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker container inspect 容器id</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/41.jpg" alt="图 41"><br>9.容器的端口映射<br>后台运行nginx容器，且起个名字，且端口映射宿主机的80端口，访问到容器内的80端口</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d --name bigdata_nginx -p 85:80 nginx</span><br><span class="line">查看容器</span><br><span class="line">[root@yc_docker81 ~]# docker ps</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/42.jpg" alt="图 42"><br>#9.1查看容器的端口转发情况</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker port 容器id</span><br><span class="line">docker port 2e73fac44507</span><br><span class="line">80/tcp -&gt; 0.0.0.0:85</span><br><span class="line">80/tcp -&gt; :::85</span><br></pre></td></tr></table></figure>
+<p>#9.2随机端口映射 -P 随机访问一个宿主机的空闲端口，映射到容器内打开的端口</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d --name bigdata_nginx_random -P nginx</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/43.jpg" alt="图 43"><br><img src="/../image-docker/44.jpg" alt="图 44"></p>
+<h3 id="10-创建并运行nginx容器的命令："><a href="#10-创建并运行nginx容器的命令：" class="headerlink" title="10.创建并运行nginx容器的命令："></a>10.创建并运行nginx容器的命令：</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run --name containerName -p 80:80 -d nginx</span><br></pre></td></tr></table></figure>
+<p>将name<br>修改为mn<br>进入容器。进入我们刚刚创建的nginx容器的命令为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker exec -it 25866bdfa0e3 bash    //it后面跟的是容器的id</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/45.jpg" alt="图 45"><br>修改index.html的内容<br>容器内没有vi命令，无法直接修改，我们用下面的命令来修改：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sed -i -e &#x27;s#Welcome to nginx#人工智能学院欢迎您#g&#x27; -e &#x27;s#&lt;head&gt;#&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;#g&#x27; index.html</span><br><span class="line">在浏览器访问自己的虚拟机地址，例如我的是：http://192.168.88.163</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-docker/46.jpg" alt="图 46"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">（一）当我关闭防火墙，准备启动docker时出现了报错，具体报错信息是</span><br><span class="line">Job for docker.service failed because the control process exited with error cod</span><br><span class="line">See &quot;systemctl status docker.service&quot; and &quot;journalcti -xe&quot; for details.因为没遇到过，所以我去查了百度，发现是防火墙可能是关闭错误了，根据百度上给的解决方案我关闭了selinux,具体方法就是修改config里面的内容，保存并退出后，，报错便不再出现。</span><br><span class="line">(二) 在创建新容器的时候我发现输入容器的name不会百分百运行出来，于是我将容器的id替换掉name后，就可以运行了。</span><br><span class="line">经过以上配置过程，过程中也遇到错误，也有不理解的问题，最后都通过百度或者询问身边的同学解决，这给我在本课程学习中提高了信心和对于知识的掌握。</span><br></pre></td></tr></table></figure>
 
 
 
 ]]></content>
+  </entry>
+  <entry>
+    <title>Spark Standalone环境部署</title>
+    <url>/2023/05/31/spark-standalone/</url>
+    <content><![CDATA[<h1 id="Spark-Standalone"><a href="#Spark-Standalone" class="headerlink" title="Spark-Standalone"></a>Spark-Standalone</h1><h2 id="一-安装Anaconda"><a href="#一-安装Anaconda" class="headerlink" title="一.安装Anaconda"></a>一.安装Anaconda</h2><p>上传Anaconda3-2021.05-Linux-x86_64.sh文件到Linux服务器上</p>
+<p><img src="/../image-standalone/1.jpg" alt="图 1">  </p>
+<p>安装</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh ./Anaconda3-2021.05-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-standalone/2.jpg" alt="图 2">  </p>
+<p><img src="/../image-standalone/3.jpg" alt="图 3"> </p>
+<p><img src="/../image-standalone/4.jpg" alt="图 4">  </p>
+<p>重新进入到finalshell后查看</p>
+<p><img src="/../image-standalone/5.jpg" alt="图 5">  </p>
+<p>此时base表示已经安装完成</p>
+<h2 id="二-所有机器配置环境变量"><a href="#二-所有机器配置环境变量" class="headerlink" title="二.所有机器配置环境变量"></a>二.所有机器配置环境变量</h2><p>上传spark.jar包并解压</p>
+<p><img src="/../image-standalone/6.jpg" alt="图 6">  </p>
+<p><img src="/../image-standalone/7.jpg" alt="图 7">  </p>
+<h3 id="配置环境文件"><a href="#配置环境文件" class="headerlink" title="配置环境文件"></a>配置环境文件</h3><h5 id="配置workers文件"><a href="#配置workers文件" class="headerlink" title="配置workers文件"></a>配置workers文件</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 改名，将workers.template改名成workers</span><br><span class="line"></span><br><span class="line"># 进入到workers里编辑文件</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-standalone/9.jpg" alt="图 9">  </p>
+<p><img src="/../image-standalone/10.jpg" alt="图 10">  </p>
+<h5 id="配置spark-env-sh文件"><a href="#配置spark-env-sh文件" class="headerlink" title="配置spark-env.sh文件"></a>配置spark-env.sh文件</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 1.改名，将spark-env.sh.template改名成为将spark-env.sh</span><br><span class="line"></span><br><span class="line"># 2.编辑saprk-env.sh,添加以下内容</span><br><span class="line"></span><br><span class="line">## 设置JAVA安装目录</span><br><span class="line">JAVA_HOME=/export/server/jdk</span><br><span class="line"></span><br><span class="line">## HADOOP软件配置文件目录，读取HDFS上文件和运行YARN集群</span><br><span class="line">HADOOP_CONF_DIR=/export/server/hadoop/etc/hadoop</span><br><span class="line">YARN_CONF_DIR=/export/server/hadoop/etc/hadoop</span><br><span class="line"></span><br><span class="line">## 指定spark老大Master的IP和提交任务的通信端口</span><br><span class="line"># 告知Spark的master运行在哪个机器上</span><br><span class="line">export SPARK_MASTER_HOST=node1</span><br><span class="line"># 告知sparkmaster的通讯端口</span><br><span class="line">export SPARK_MASTER_PORT=7077</span><br><span class="line"># 告知spark master的 webui端口</span><br><span class="line">SPARK_MASTER_WEBUI_PORT=8080</span><br><span class="line"></span><br><span class="line"># worker cpu可用核数</span><br><span class="line">SPARK_WORKER_CORES=1</span><br><span class="line"># worker可用内存</span><br><span class="line">SPARK_WORKER_MEMORY=1g</span><br><span class="line"># worker的工作通讯地址</span><br><span class="line">SPARK_WORKER_PORT=7078</span><br><span class="line"># worker的 webui地址</span><br><span class="line">SPARK_WORKER_WEBUI_PORT=8081</span><br><span class="line"></span><br><span class="line">## 设置历史服务器</span><br><span class="line"># 配置的意思是  将spark程序运行的历史日志 存到hdfs的/sparklog文件夹中</span><br><span class="line">SPARK_HISTORY_OPTS=&quot;-Dspark.history.fs.logDirectory=hdfs://node1:8020/sparklog/ -Dspark.history.fs.cleaner.enabled=true&quot;</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-standalone/11.jpg" alt="图 11">  </p>
+<p><img src="/../image-standalone/12.jpg" alt="图 12">  </p>
+<h5 id="在HDFS上传件运行历史存放的文件夹"><a href="#在HDFS上传件运行历史存放的文件夹" class="headerlink" title="在HDFS上传件运行历史存放的文件夹"></a>在HDFS上传件运行历史存放的文件夹</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hadoop fs -mkdir /sparklog</span><br><span class="line">hadoop fs -chmod 777 /sparklog</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-standalone/13.jpg" alt="图 13">  </p>
+<h5 id="配置spark-defaults-conf文件"><a href="#配置spark-defaults-conf文件" class="headerlink" title="配置spark-defaults.conf文件"></a>配置spark-defaults.conf文件</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 1. 改名</span><br><span class="line">mv spark-defaults.conf.template spark-defaults.conf</span><br><span class="line"></span><br><span class="line"># 2. 修改内容, 添加下内容</span><br><span class="line"></span><br><span class="line"># 开启spark的日期记录功能</span><br><span class="line">spark.eventLog.enabled 	true</span><br><span class="line"># 设置spark日志记录的路径</span><br><span class="line">spark.eventLog.dir	 hdfs://node1:8020/sparklog/ </span><br><span class="line"># 设置spark日志是否启动压缩</span><br><span class="line">spark.eventLog.compress 	true</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-standalone/14.jpg" alt="图 14">  </p>
+<p><img src="/../image-standalone/15.jpg" alt="图 15">  </p>
+<h5 id="配置log4j-properties-文件"><a href="#配置log4j-properties-文件" class="headerlink" title="配置log4j.properties 文件"></a>配置log4j.properties 文件</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 1. 改名</span><br><span class="line">mv log4j.properties.template log4j.properties</span><br><span class="line"></span><br><span class="line"># 2.编辑log4j.properties，</span><br><span class="line">修改内容如下图所示</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-standalone/16.jpg" alt="图 16">  </p>
+<p><img src="/../image-standalone/17.jpg" alt="图 17">  </p>
+<h3 id="将spark安装文件分发到node2，node3上"><a href="#将spark安装文件分发到node2，node3上" class="headerlink" title="将spark安装文件分发到node2，node3上"></a>将spark安装文件分发到node2，node3上</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scp -r spark-3.1.2-bin-hadoop3.2 node2:/export/server/</span><br><span class="line">scp -r spark-3.1.2-bin-hadoop3.2 node3:/export/server/</span><br></pre></td></tr></table></figure>
+<p>node2<br><img src="/../image-standalone/18.jpg" alt="图 18">  </p>
+<p>node3<br><img src="/../image-standalone/19.jpg" alt="图 19">  </p>
+<p>同时，在node2和node3上给spark安装目录添加软连接</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ln -s /export/server/spark-3.1.2-bin-hadoop3.2 /export/server/spark</span><br></pre></td></tr></table></figure>
+<p>node2<br><img src="/../image-standalone/20.jpg" alt="图 20">  </p>
+<p>node3<br><img src="/../image-standalone/21.jpg" alt="图 21">  </p>
+<h3 id="检查环境变量"><a href="#检查环境变量" class="headerlink" title="检查环境变量"></a>检查环境变量</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">进入到profile里</span><br><span class="line">检查</span><br><span class="line">JAVA_HOME</span><br><span class="line">SPARK_HOME</span><br><span class="line">PYSPARK_PYTHON</span><br><span class="line">等环境变量是否正确指向正确的目录</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-standalone/22.jpg" alt="图 22">  </p>
+<p><img src="/../image-standalone/23.jpg" alt="图 23">  </p>
+<p><img src="/../image-standalone/24.jpg" alt="图 24">  </p>
+<h3 id="启动历史服务器"><a href="#启动历史服务器" class="headerlink" title="启动历史服务器"></a>启动历史服务器</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sbin/start-history-server.sh</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-standalone/25.jpg" alt="图 25">  </p>
+<h3 id="启动Spark的Master和Worker进程"><a href="#启动Spark的Master和Worker进程" class="headerlink" title="启动Spark的Master和Worker进程"></a>启动Spark的Master和Worker进程</h3><p><img src="/../image-standalone/26.jpg" alt="图 26">  </p>
+<h3 id="查看Master的WEB-UI"><a href="#查看Master的WEB-UI" class="headerlink" title="查看Master的WEB UI"></a>查看Master的WEB UI</h3><p>默认窗口设置的是8080</p>
+<p><img src="/../image-standalone/28.jpg" alt="图 28">  </p>
+<h2 id="连接到Standalone集群"><a href="#连接到Standalone集群" class="headerlink" title="连接到Standalone集群"></a>连接到Standalone集群</h2><h5 id="bin-x2F-pyspark"><a href="#bin-x2F-pyspark" class="headerlink" title="bin&#x2F;pyspark"></a>bin&#x2F;pyspark</h5><p>执行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bin/pyspark --master spark://node1:7077</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-standalone/29.jpg" alt="图 29">  </p>
+<h5 id="bin-x2F-spark-shell"><a href="#bin-x2F-spark-shell" class="headerlink" title="bin&#x2F;spark-shell"></a>bin&#x2F;spark-shell</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bin/spark-shell --master spark://node1:7077</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//测试代码</span><br><span class="line">sc.parallelize(Array(1,2,3,4,5)).map(x=&gt; x + 1).collect()</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-standalone/30.jpg" alt="图 30">  </p>
+<h5 id="bin-x2F-spark-submit-PI"><a href="#bin-x2F-spark-submit-PI" class="headerlink" title="bin&#x2F;spark-submit(PI)"></a>bin&#x2F;spark-submit(PI)</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bin/spark-submit --master spark://node1:7077 /export/server/spark/examples/src/main/python/pi.py 100</span><br></pre></td></tr></table></figure>
+<p><img src="/../image-standalone/31.jpg" alt="图 31">  </p>
+<h3 id="查看历史服务器"><a href="#查看历史服务器" class="headerlink" title="查看历史服务器"></a>查看历史服务器</h3><p>历史服务器的默认端口是: 18080</p>
+<p><img src="/../image-standalone/32.jpg" alt="图 32">  </p>
+<h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这个spark-standalone部署的任务总体来说还是很简单的，</span><br><span class="line">从头到尾基本没有遇到什么问题，基本上很顺利的就结束了这个任务点。</span><br><span class="line">也就在连接到standalone集群时出现了拒绝连接的情况，</span><br><span class="line">结果发现是hdf集群和yarn集群没有启动，除此之外就没有什么问题了</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>spark全流程配置SparkHA|SparkYarn</title>
