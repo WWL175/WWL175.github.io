@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Git环境部署</title>
+    <url>/2023/06/07/Git%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h2 id="GIT的发展简史"><a href="#GIT的发展简史" class="headerlink" title="GIT的发展简史"></a>GIT的发展简史</h2><p>在2002年以前，世界各地的志愿者把源代码文件通过diff的方式发给Linus，然后由Linus本人通过手工方式合并代码,不过，到了2002年，Linux系统已经发展了十年了，代码库之大让Linus很难继续通过手工方式管理了,于是Linus选择了一个商业的版本控制系统BitKeeper,另一方面,BitKeeper不是开源的. 显然与Linux 的开源精神不相符,所以linux 社区的很多人抱怨,不愿意使用。</p>
+<p>Linus 本人 花了10天的时间Git 出来了,一个月之内，Linux系统的源码已经由Git管理了,Git 出来以后毕竟是一个人做的,开始并不好用(刚开始只能用勉强可以用来形容), 还是很多人抱怨,发展了很多年都没有干过其他软件。</p>
+<p>直到 2008年，GitHub网站上线了，它为开源项目免费提供Git存储，无数开源项目开始迁移至GitHub,从此git 迎来了飞速发展,当下git 已经成为了最流行的版本控制工具。</p>
+<h2 id="Git的工作流程"><a href="#Git的工作流程" class="headerlink" title="Git的工作流程"></a>Git的工作流程</h2><p>Git是分布式版本控制系统（Distributed Version Control System，简称 DVCS），分为两种类型的仓库：<br>本地仓库和远程仓库<br>工作流程如下：</p>
+<h5 id="1．从远程仓库中克隆或拉取代码到本地仓库-clone-x2F-pull"><a href="#1．从远程仓库中克隆或拉取代码到本地仓库-clone-x2F-pull" class="headerlink" title="1．从远程仓库中克隆或拉取代码到本地仓库(clone&#x2F;pull)"></a>1．从远程仓库中克隆或拉取代码到本地仓库(clone&#x2F;pull)</h5><h5 id="2．从本地进行代码修改"><a href="#2．从本地进行代码修改" class="headerlink" title="2．从本地进行代码修改"></a>2．从本地进行代码修改</h5><h5 id="3．在提交前先将代码提交到暂存区"><a href="#3．在提交前先将代码提交到暂存区" class="headerlink" title="3．在提交前先将代码提交到暂存区"></a>3．在提交前先将代码提交到暂存区</h5><h5 id="4．提交到本地仓库。本地仓库中保存修改的各个历史版本"><a href="#4．提交到本地仓库。本地仓库中保存修改的各个历史版本" class="headerlink" title="4．提交到本地仓库。本地仓库中保存修改的各个历史版本"></a>4．提交到本地仓库。本地仓库中保存修改的各个历史版本</h5><h5 id="5．修改完成后，需要和团队成员共享代码时，将代码push到远程仓库"><a href="#5．修改完成后，需要和团队成员共享代码时，将代码push到远程仓库" class="headerlink" title="5．修改完成后，需要和团队成员共享代码时，将代码push到远程仓库"></a>5．修改完成后，需要和团队成员共享代码时，将代码push到远程仓库</h5><p><img src="/../image-git/1.jpg" alt="图 1">  </p>
+<h2 id="GIT常用命令流程图"><a href="#GIT常用命令流程图" class="headerlink" title="GIT常用命令流程图:"></a>GIT常用命令流程图:</h2><p><img src="/../image-git/2.jpg" alt="图 3">  </p>
+<h1 id="Git-的安装以及基础使用"><a href="#Git-的安装以及基础使用" class="headerlink" title="Git 的安装以及基础使用"></a>Git 的安装以及基础使用</h1><h2 id="一、下载"><a href="#一、下载" class="headerlink" title="一、下载"></a>一、下载</h2><p>git下载网址：<a href="https://git-scm.com/download">https://git-scm.com/download</a><br><img src="/../image-git/3.jpg" alt="图 4"><br>git客户端下载网址：<a href="https://tortoisegit.org/download/">https://tortoisegit.org/download/</a><br><img src="/../image-git/4.jpg" alt="图 5"><br>下载完成后<br><img src="/../image-git/5.jpg" alt="图 6"><br><img src="/../image-git/6.jpg" alt="图 7">  </p>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p>按照顺序直接下一步安装即可<br><img src="/../image-git/7.jpg" alt="图 8"><br><img src="/../image-git/8.jpg" alt="图 9">  </p>
+<h4 id="更改语言"><a href="#更改语言" class="headerlink" title="更改语言"></a>更改语言</h4><p><img src="/../image-git/9.jpg" alt="图 10">  </p>
+<h2 id="三、Git-的基本使用01-TortoiseGit-操作本地仓库"><a href="#三、Git-的基本使用01-TortoiseGit-操作本地仓库" class="headerlink" title="三、Git 的基本使用01-TortoiseGit 操作本地仓库"></a>三、Git 的基本使用01-TortoiseGit 操作本地仓库</h2><h3 id="1-初始化仓库初始化仓库"><a href="#1-初始化仓库初始化仓库" class="headerlink" title="1.初始化仓库初始化仓库"></a>1.初始化仓库初始化仓库</h3><p>新建一个文件夹,进入文件夹内部操作</p>
+<h4 id="1-右键–-gt-在这里创建Git-版本库"><a href="#1-右键–-gt-在这里创建Git-版本库" class="headerlink" title="1)右键–&gt; 在这里创建Git 版本库"></a>1)右键–&gt; 在这里创建Git 版本库</h4><p><img src="/../image-git/10.jpg" alt="图 11">  </p>
+<h3 id="2-添加文件"><a href="#2-添加文件" class="headerlink" title="2.添加文件"></a>2.添加文件</h3><h4 id="1-在仓库中新建一个文件"><a href="#1-在仓库中新建一个文件" class="headerlink" title="1)在仓库中新建一个文件"></a>1)在仓库中新建一个文件</h4><h4 id="2-选中新建的文件–-gt-右键–-gt-TortoiseGit–-gt-添加"><a href="#2-选中新建的文件–-gt-右键–-gt-TortoiseGit–-gt-添加" class="headerlink" title="2)选中新建的文件–&gt;右键–&gt; TortoiseGit–&gt; 添加"></a>2)选中新建的文件–&gt;右键–&gt; TortoiseGit–&gt; 添加</h4><h4 id="3-此时我们看到文件夹上多了一个-“加号”"><a href="#3-此时我们看到文件夹上多了一个-“加号”" class="headerlink" title="3)此时我们看到文件夹上多了一个 “加号”"></a>3)此时我们看到文件夹上多了一个 “加号”</h4><p><img src="/../image-git/11.jpg" alt="图 12">  </p>
+<h3 id="3-提交文件至本地仓库"><a href="#3-提交文件至本地仓库" class="headerlink" title="3.提交文件至本地仓库"></a>3.提交文件至本地仓库</h3><h4 id="1-选中文件"><a href="#1-选中文件" class="headerlink" title="1)选中文件"></a>1)选中文件</h4><h4 id="2-右键–git提交"><a href="#2-右键–git提交" class="headerlink" title="2) 右键–git提交"></a>2) 右键–git提交</h4><p><img src="/../image-git/12.jpg" alt="图 13">  </p>
+<h3 id="4-修改文件-与再次提交文件"><a href="#4-修改文件-与再次提交文件" class="headerlink" title="4.修改文件,与再次提交文件"></a>4.修改文件,与再次提交文件</h3><p><img src="/../image-git/13.jpg" alt="图 15">  </p>
+<h3 id="5-查看提交历史记录"><a href="#5-查看提交历史记录" class="headerlink" title="5.查看提交历史记录"></a>5.查看提交历史记录</h3><p>选中文件<br>右键–&gt; TortoiseGit–&gt; 显示日志<br>（此时我们可以看到所有的历史提交记录）<br><img src="/../image-git/14.jpg" alt="图 16">  </p>
+<h3 id="6-回退至历史版本"><a href="#6-回退至历史版本" class="headerlink" title="6.回退至历史版本"></a>6.回退至历史版本</h3><p>右键–&gt; TortoiseGit–&gt; 显示日志<br>选中某个版本–&gt; 进行如下操作<br><img src="/../image-git/15.jpg" alt="图 17">  </p>
+<h3 id="7-本地删除与恢复"><a href="#7-本地删除与恢复" class="headerlink" title="7.本地删除与恢复"></a>7.本地删除与恢复</h3><p>直接选中文件删除的话,其实只是删除了本地工作区的文件,并没有删除 仓库中的文件<br>   此时时可以回退的, 比如我们进行如下操作：</p>
+<h4 id="1-文件删除"><a href="#1-文件删除" class="headerlink" title="1)文件删除"></a>1)文件删除</h4><h4 id="2-右键–-gt-TortoiseGit–-gt-还原"><a href="#2-右键–-gt-TortoiseGit–-gt-还原" class="headerlink" title="2)右键–&gt; TortoiseGit–&gt; 还原"></a>2)右键–&gt; TortoiseGit–&gt; 还原</h4><p>   此时我们发现文件又被恢复了<br><img src="/../image-git/16.jpg" alt="图 18"><br><img src="/../image-git/17.jpg" alt="图 19">  </p>
+<h3 id="8-从版本库删除-但是不删除本地"><a href="#8-从版本库删除-但是不删除本地" class="headerlink" title="8.从版本库删除,但是不删除本地"></a>8.从版本库删除,但是不删除本地</h3><p><img src="/../image-git/18.jpg" alt="图 20">  </p>
+<h3 id="9-创建分支"><a href="#9-创建分支" class="headerlink" title="9.创建分支"></a>9.创建分支</h3><p><img src="/../image-git/1.jpg" alt="图 21">  </p>
+<h3 id="10-查看分支"><a href="#10-查看分支" class="headerlink" title="10.查看分支"></a>10.查看分支</h3><p><img src="/../image-git/19.jpg" alt="图 22">  </p>
+<h3 id="11-切换分支"><a href="#11-切换分支" class="headerlink" title="11.切换分支"></a>11.切换分支</h3><p>右键–&gt; 检出<br><img src="/../image-git/20.jpg" alt="图 23">  </p>
+<h3 id="12-合并"><a href="#12-合并" class="headerlink" title="12.合并"></a>12.合并</h3><p>我们将代码切换到分支1,然后写属于需求1 的代码并提交<br>当我们把需求1 开发完毕如何把需求1 的代码合并到主分支呢?</p>
+<h4 id="–-gt-1-切换到-主版本"><a href="#–-gt-1-切换到-主版本" class="headerlink" title="–&gt;1 切换到 主版本"></a>–&gt;1 切换到 主版本</h4><h4 id="–-gt-2-右键-合并即可将需求1-写的代码合并至主分支"><a href="#–-gt-2-右键-合并即可将需求1-写的代码合并至主分支" class="headerlink" title="–&gt;2 右键 合并即可将需求1 写的代码合并至主分支"></a>–&gt;2 右键 合并即可将需求1 写的代码合并至主分支</h4><h4 id="—–此时我们看到代码自动合并到了master分支"><a href="#—–此时我们看到代码自动合并到了master分支" class="headerlink" title="—–此时我们看到代码自动合并到了master分支"></a>—–此时我们看到代码自动合并到了master分支</h4><p><img src="/../image-git/21.jpg" alt="图 24">  </p>
+<h3 id="13-删除分支"><a href="#13-删除分支" class="headerlink" title="13.删除分支"></a>13.删除分支</h3><p><img src="/../image-git/22.jpg" alt="图 25">  </p>
+<h3 id="14-冲突的处理"><a href="#14-冲突的处理" class="headerlink" title="14.冲突的处理"></a>14.冲突的处理</h3><p><img src="/../image-git/23.jpg" alt="图 26">  </p>
+<h3 id="15-标签的创建-tag"><a href="#15-标签的创建-tag" class="headerlink" title="15.标签的创建(tag)"></a>15.标签的创建(tag)</h3><p>标签的创建和分支的创建操作几乎一样<br><img src="/../image-git/24.jpg" alt="图 27">  </p>
+<h3 id="16-标签的切换与删除"><a href="#16-标签的切换与删除" class="headerlink" title="16.标签的切换与删除"></a>16.标签的切换与删除</h3><p><img src="/../image-git/25.jpg" alt="图 28"><br><img src="/../image-git/26.jpg" alt="图 29">  </p>
+<h3 id="17-本地相对路径-多个文件夹之间共享代码"><a href="#17-本地相对路径-多个文件夹之间共享代码" class="headerlink" title="17.本地相对路径,多个文件夹之间共享代码"></a>17.本地相对路径,多个文件夹之间共享代码</h3><p><img src="/../image-git/27.jpg" alt="图 30">  </p>
+<h3 id="18-开启局域网共享代码"><a href="#18-开启局域网共享代码" class="headerlink" title="18.开启局域网共享代码"></a>18.开启局域网共享代码</h3><p><img src="/../image-git/28.jpg" alt="图 31"><br>局域网这种共享是没有安全控制的,都可以访问,如果想要搭建一个可以控制权限的服务器需要借助第三方软件</p>
+<h2 id="四、常用远程仓库托管服务"><a href="#四、常用远程仓库托管服务" class="headerlink" title="四、常用远程仓库托管服务"></a>四、常用远程仓库托管服务</h2><p>除了自己搭建服务器,其实我们可以使用一些免费的远程仓库，例如：<a href="http://www.gitee.com/">www.gitee.com</a></p>
+<h3 id="1-码云账号注册"><a href="#1-码云账号注册" class="headerlink" title="1.码云账号注册"></a>1.码云账号注册</h3><p><img src="/../image-git/29.jpg" alt="图 32">  </p>
+<h3 id="2-创建远程仓库"><a href="#2-创建远程仓库" class="headerlink" title="2.创建远程仓库"></a>2.创建远程仓库</h3><p><img src="/../image-git/30.jpg" alt="图 33">  </p>
+<h3 id="3-查看仓库地址"><a href="#3-查看仓库地址" class="headerlink" title="3.查看仓库地址"></a>3.查看仓库地址</h3><p><img src="/../image-git/31.jpg" alt="图 34">  </p>
+<h3 id="4-把本地代码推送到远端"><a href="#4-把本地代码推送到远端" class="headerlink" title="4.把本地代码推送到远端"></a>4.把本地代码推送到远端</h3><p><img src="/../image-git/32.jpg" alt="图 35"><br><img src="/../image-git/33.jpg" alt="图 36"><br><img src="/../image-git/34.jpg" alt="图 37">  </p>
+<h3 id="5-从远程仓库克隆代码"><a href="#5-从远程仓库克隆代码" class="headerlink" title="5.从远程仓库克隆代码"></a>5.从远程仓库克隆代码</h3><p>我们同样可以从库下载代码,新建一个文件夹 repo2 ,进入然后进行如下操作。<br><img src="/../image-git/35.jpg" alt="图 38"><br><img src="/../image-git/36.jpg" alt="图 39"><br>此时我们发现我们的代码已经被下载下来了</p>
+<h2 id="五、ssh-连接概述"><a href="#五、ssh-连接概述" class="headerlink" title="五、ssh 连接概述"></a>五、ssh 连接概述</h2><p>实际上git 不仅仅支持用户名密码方式的配置,可以有另外一种相对更加安全的配置即ssh 方式配置</p>
+<h3 id="1-ssh-密钥的生成"><a href="#1-ssh-密钥的生成" class="headerlink" title="1.ssh 密钥的生成"></a>1.ssh 密钥的生成</h3><h4 id="生成公钥私钥"><a href="#生成公钥私钥" class="headerlink" title="生成公钥私钥"></a>生成公钥私钥</h4><p>ssh-keygen -t rsa<br>一直回车即可<br>会默认用户目录 .ssh 目录生成一个默认的id_rsa文件 和id_rsa.pub<br><img src="/../image-git/37.jpg" alt="图 40">  </p>
+<h3 id="2-ssh-密钥配置"><a href="#2-ssh-密钥配置" class="headerlink" title="2.ssh 密钥配置"></a>2.ssh 密钥配置</h3><p><img src="/../image-git/38.jpg" alt="图 41"><br><img src="/../image-git/39.jpg" alt="图 42">  </p>
+<h3 id="3-ssh-方式克隆-x2F-提交代码"><a href="#3-ssh-方式克隆-x2F-提交代码" class="headerlink" title="3.ssh 方式克隆&#x2F;提交代码:"></a>3.ssh 方式克隆&#x2F;提交代码:</h3><p><img src="/../image-git/40.jpg" alt="图 43">  </p>
+<h1 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">同时，我通过对GIT的安装、启动、运行、解决问题的一系列完成，对此了解越来越深：</span><br><span class="line"></span><br><span class="line">上述我们的操作 使用的 是客户端TortoiseGit 操作的git ,实际上底层依旧是使用的命令行帮我们执行, 在早期 git 并没有窗口化工具,开发人员只能使用命令行模式</span><br><span class="line"></span><br><span class="line">实际上,如果你掌握并熟练使用了命令行模式操作git 的话,你会发现某些操作命令行比窗口化操作要简单</span><br><span class="line">所有你在工作中会发现高深的技术人员可能会喜欢命令行模式提交git，当下git 已经成为了最流行的版本控制工具。</span><br><span class="line"></span><br><span class="line">最后，通过这次实践，积极向同学询问其中的疑问，在同学的帮助下解决困难，完成作业，对与其中的不足也是我后续将继续学习的地方。</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
     <title>7.Spark(Pyspark基础编译环境）</title>
     <url>/2023/06/09/Spark(Pyspark%E5%9F%BA%E7%A1%80%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%EF%BC%89/</url>
     <content><![CDATA[<h1 id="7-1本地Pyspark环境配置"><a href="#7-1本地Pyspark环境配置" class="headerlink" title="7.1本地Pyspark环境配置"></a>7.1本地Pyspark环境配置</h1><ul>
@@ -106,107 +153,6 @@
 <li>将本机及远程服务器中的Pyspark安装为3.2.0版本;<br>pip install pyspark&#x3D;&#x3D;3.2.0 -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></li>
 </ol>
 </blockquote>
-]]></content>
-  </entry>
-  <entry>
-    <title>Git环境部署</title>
-    <url>/2023/06/07/Git%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h2 id="GIT的发展简史"><a href="#GIT的发展简史" class="headerlink" title="GIT的发展简史"></a>GIT的发展简史</h2><p>在2002年以前，世界各地的志愿者把源代码文件通过diff的方式发给Linus，然后由Linus本人通过手工方式合并代码,不过，到了2002年，Linux系统已经发展了十年了，代码库之大让Linus很难继续通过手工方式管理了,于是Linus选择了一个商业的版本控制系统BitKeeper,另一方面,BitKeeper不是开源的. 显然与Linux 的开源精神不相符,所以linux 社区的很多人抱怨,不愿意使用。</p>
-<p>Linus 本人 花了10天的时间Git 出来了,一个月之内，Linux系统的源码已经由Git管理了,Git 出来以后毕竟是一个人做的,开始并不好用(刚开始只能用勉强可以用来形容), 还是很多人抱怨,发展了很多年都没有干过其他软件。</p>
-<p>直到 2008年，GitHub网站上线了，它为开源项目免费提供Git存储，无数开源项目开始迁移至GitHub,从此git 迎来了飞速发展,当下git 已经成为了最流行的版本控制工具。</p>
-<h2 id="Git的工作流程"><a href="#Git的工作流程" class="headerlink" title="Git的工作流程"></a>Git的工作流程</h2><p>Git是分布式版本控制系统（Distributed Version Control System，简称 DVCS），分为两种类型的仓库：<br>本地仓库和远程仓库<br>工作流程如下：</p>
-<h5 id="1．从远程仓库中克隆或拉取代码到本地仓库-clone-x2F-pull"><a href="#1．从远程仓库中克隆或拉取代码到本地仓库-clone-x2F-pull" class="headerlink" title="1．从远程仓库中克隆或拉取代码到本地仓库(clone&#x2F;pull)"></a>1．从远程仓库中克隆或拉取代码到本地仓库(clone&#x2F;pull)</h5><h5 id="2．从本地进行代码修改"><a href="#2．从本地进行代码修改" class="headerlink" title="2．从本地进行代码修改"></a>2．从本地进行代码修改</h5><h5 id="3．在提交前先将代码提交到暂存区"><a href="#3．在提交前先将代码提交到暂存区" class="headerlink" title="3．在提交前先将代码提交到暂存区"></a>3．在提交前先将代码提交到暂存区</h5><h5 id="4．提交到本地仓库。本地仓库中保存修改的各个历史版本"><a href="#4．提交到本地仓库。本地仓库中保存修改的各个历史版本" class="headerlink" title="4．提交到本地仓库。本地仓库中保存修改的各个历史版本"></a>4．提交到本地仓库。本地仓库中保存修改的各个历史版本</h5><h5 id="5．修改完成后，需要和团队成员共享代码时，将代码push到远程仓库"><a href="#5．修改完成后，需要和团队成员共享代码时，将代码push到远程仓库" class="headerlink" title="5．修改完成后，需要和团队成员共享代码时，将代码push到远程仓库"></a>5．修改完成后，需要和团队成员共享代码时，将代码push到远程仓库</h5><p><img src="/../image-git/1.jpg" alt="图 1">  </p>
-<h2 id="GIT常用命令流程图"><a href="#GIT常用命令流程图" class="headerlink" title="GIT常用命令流程图:"></a>GIT常用命令流程图:</h2><p><img src="/../image-git/2.jpg" alt="图 3">  </p>
-<h1 id="Git-的安装以及基础使用"><a href="#Git-的安装以及基础使用" class="headerlink" title="Git 的安装以及基础使用"></a>Git 的安装以及基础使用</h1><h2 id="一、下载"><a href="#一、下载" class="headerlink" title="一、下载"></a>一、下载</h2><p>git下载网址：<a href="https://git-scm.com/download">https://git-scm.com/download</a><br><img src="/../image-git/3.jpg" alt="图 4"><br>git客户端下载网址：<a href="https://tortoisegit.org/download/">https://tortoisegit.org/download/</a><br><img src="/../image-git/4.jpg" alt="图 5"><br>下载完成后<br><img src="/../image-git/5.jpg" alt="图 6"><br><img src="/../image-git/6.jpg" alt="图 7">  </p>
-<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p>按照顺序直接下一步安装即可<br><img src="/../image-git/7.jpg" alt="图 8"><br><img src="/../image-git/8.jpg" alt="图 9">  </p>
-<h4 id="更改语言"><a href="#更改语言" class="headerlink" title="更改语言"></a>更改语言</h4><p><img src="/../image-git/9.jpg" alt="图 10">  </p>
-<h2 id="三、Git-的基本使用01-TortoiseGit-操作本地仓库"><a href="#三、Git-的基本使用01-TortoiseGit-操作本地仓库" class="headerlink" title="三、Git 的基本使用01-TortoiseGit 操作本地仓库"></a>三、Git 的基本使用01-TortoiseGit 操作本地仓库</h2><h3 id="1-初始化仓库初始化仓库"><a href="#1-初始化仓库初始化仓库" class="headerlink" title="1.初始化仓库初始化仓库"></a>1.初始化仓库初始化仓库</h3><p>新建一个文件夹,进入文件夹内部操作</p>
-<h4 id="1-右键–-gt-在这里创建Git-版本库"><a href="#1-右键–-gt-在这里创建Git-版本库" class="headerlink" title="1)右键–&gt; 在这里创建Git 版本库"></a>1)右键–&gt; 在这里创建Git 版本库</h4><p><img src="/../image-git/10.jpg" alt="图 11">  </p>
-<h3 id="2-添加文件"><a href="#2-添加文件" class="headerlink" title="2.添加文件"></a>2.添加文件</h3><h4 id="1-在仓库中新建一个文件"><a href="#1-在仓库中新建一个文件" class="headerlink" title="1)在仓库中新建一个文件"></a>1)在仓库中新建一个文件</h4><h4 id="2-选中新建的文件–-gt-右键–-gt-TortoiseGit–-gt-添加"><a href="#2-选中新建的文件–-gt-右键–-gt-TortoiseGit–-gt-添加" class="headerlink" title="2)选中新建的文件–&gt;右键–&gt; TortoiseGit–&gt; 添加"></a>2)选中新建的文件–&gt;右键–&gt; TortoiseGit–&gt; 添加</h4><h4 id="3-此时我们看到文件夹上多了一个-“加号”"><a href="#3-此时我们看到文件夹上多了一个-“加号”" class="headerlink" title="3)此时我们看到文件夹上多了一个 “加号”"></a>3)此时我们看到文件夹上多了一个 “加号”</h4><p><img src="/../image-git/11.jpg" alt="图 12">  </p>
-<h3 id="3-提交文件至本地仓库"><a href="#3-提交文件至本地仓库" class="headerlink" title="3.提交文件至本地仓库"></a>3.提交文件至本地仓库</h3><h4 id="1-选中文件"><a href="#1-选中文件" class="headerlink" title="1)选中文件"></a>1)选中文件</h4><h4 id="2-右键–git提交"><a href="#2-右键–git提交" class="headerlink" title="2) 右键–git提交"></a>2) 右键–git提交</h4><p><img src="/../image-git/12.jpg" alt="图 13">  </p>
-<h3 id="4-修改文件-与再次提交文件"><a href="#4-修改文件-与再次提交文件" class="headerlink" title="4.修改文件,与再次提交文件"></a>4.修改文件,与再次提交文件</h3><p><img src="/../image-git/13.jpg" alt="图 15">  </p>
-<h3 id="5-查看提交历史记录"><a href="#5-查看提交历史记录" class="headerlink" title="5.查看提交历史记录"></a>5.查看提交历史记录</h3><p>选中文件<br>右键–&gt; TortoiseGit–&gt; 显示日志<br>（此时我们可以看到所有的历史提交记录）<br><img src="/../image-git/14.jpg" alt="图 16">  </p>
-<h3 id="6-回退至历史版本"><a href="#6-回退至历史版本" class="headerlink" title="6.回退至历史版本"></a>6.回退至历史版本</h3><p>右键–&gt; TortoiseGit–&gt; 显示日志<br>选中某个版本–&gt; 进行如下操作<br><img src="/../image-git/15.jpg" alt="图 17">  </p>
-<h3 id="7-本地删除与恢复"><a href="#7-本地删除与恢复" class="headerlink" title="7.本地删除与恢复"></a>7.本地删除与恢复</h3><p>直接选中文件删除的话,其实只是删除了本地工作区的文件,并没有删除 仓库中的文件<br>   此时时可以回退的, 比如我们进行如下操作：</p>
-<h4 id="1-文件删除"><a href="#1-文件删除" class="headerlink" title="1)文件删除"></a>1)文件删除</h4><h4 id="2-右键–-gt-TortoiseGit–-gt-还原"><a href="#2-右键–-gt-TortoiseGit–-gt-还原" class="headerlink" title="2)右键–&gt; TortoiseGit–&gt; 还原"></a>2)右键–&gt; TortoiseGit–&gt; 还原</h4><p>   此时我们发现文件又被恢复了<br><img src="/../image-git/16.jpg" alt="图 18"><br><img src="/../image-git/17.jpg" alt="图 19">  </p>
-<h3 id="8-从版本库删除-但是不删除本地"><a href="#8-从版本库删除-但是不删除本地" class="headerlink" title="8.从版本库删除,但是不删除本地"></a>8.从版本库删除,但是不删除本地</h3><p><img src="/../image-git/18.jpg" alt="图 20">  </p>
-<h3 id="9-创建分支"><a href="#9-创建分支" class="headerlink" title="9.创建分支"></a>9.创建分支</h3><p><img src="/../image-git/1.jpg" alt="图 21">  </p>
-<h3 id="10-查看分支"><a href="#10-查看分支" class="headerlink" title="10.查看分支"></a>10.查看分支</h3><p><img src="/../image-git/19.jpg" alt="图 22">  </p>
-<h3 id="11-切换分支"><a href="#11-切换分支" class="headerlink" title="11.切换分支"></a>11.切换分支</h3><p>右键–&gt; 检出<br><img src="/../image-git/20.jpg" alt="图 23">  </p>
-<h3 id="12-合并"><a href="#12-合并" class="headerlink" title="12.合并"></a>12.合并</h3><p>我们将代码切换到分支1,然后写属于需求1 的代码并提交<br>当我们把需求1 开发完毕如何把需求1 的代码合并到主分支呢?</p>
-<h4 id="–-gt-1-切换到-主版本"><a href="#–-gt-1-切换到-主版本" class="headerlink" title="–&gt;1 切换到 主版本"></a>–&gt;1 切换到 主版本</h4><h4 id="–-gt-2-右键-合并即可将需求1-写的代码合并至主分支"><a href="#–-gt-2-右键-合并即可将需求1-写的代码合并至主分支" class="headerlink" title="–&gt;2 右键 合并即可将需求1 写的代码合并至主分支"></a>–&gt;2 右键 合并即可将需求1 写的代码合并至主分支</h4><h4 id="—–此时我们看到代码自动合并到了master分支"><a href="#—–此时我们看到代码自动合并到了master分支" class="headerlink" title="—–此时我们看到代码自动合并到了master分支"></a>—–此时我们看到代码自动合并到了master分支</h4><p><img src="/../image-git/21.jpg" alt="图 24">  </p>
-<h3 id="13-删除分支"><a href="#13-删除分支" class="headerlink" title="13.删除分支"></a>13.删除分支</h3><p><img src="/../image-git/22.jpg" alt="图 25">  </p>
-<h3 id="14-冲突的处理"><a href="#14-冲突的处理" class="headerlink" title="14.冲突的处理"></a>14.冲突的处理</h3><p><img src="/../image-git/23.jpg" alt="图 26">  </p>
-<h3 id="15-标签的创建-tag"><a href="#15-标签的创建-tag" class="headerlink" title="15.标签的创建(tag)"></a>15.标签的创建(tag)</h3><p>标签的创建和分支的创建操作几乎一样<br><img src="/../image-git/24.jpg" alt="图 27">  </p>
-<h3 id="16-标签的切换与删除"><a href="#16-标签的切换与删除" class="headerlink" title="16.标签的切换与删除"></a>16.标签的切换与删除</h3><p><img src="/../image-git/25.jpg" alt="图 28"><br><img src="/../image-git/26.jpg" alt="图 29">  </p>
-<h3 id="17-本地相对路径-多个文件夹之间共享代码"><a href="#17-本地相对路径-多个文件夹之间共享代码" class="headerlink" title="17.本地相对路径,多个文件夹之间共享代码"></a>17.本地相对路径,多个文件夹之间共享代码</h3><p><img src="/../image-git/27.jpg" alt="图 30">  </p>
-<h3 id="18-开启局域网共享代码"><a href="#18-开启局域网共享代码" class="headerlink" title="18.开启局域网共享代码"></a>18.开启局域网共享代码</h3><p><img src="/../image-git/28.jpg" alt="图 31"><br>局域网这种共享是没有安全控制的,都可以访问,如果想要搭建一个可以控制权限的服务器需要借助第三方软件</p>
-<h2 id="四、常用远程仓库托管服务"><a href="#四、常用远程仓库托管服务" class="headerlink" title="四、常用远程仓库托管服务"></a>四、常用远程仓库托管服务</h2><p>除了自己搭建服务器,其实我们可以使用一些免费的远程仓库，例如：<a href="http://www.gitee.com/">www.gitee.com</a></p>
-<h3 id="1-码云账号注册"><a href="#1-码云账号注册" class="headerlink" title="1.码云账号注册"></a>1.码云账号注册</h3><p><img src="/../image-git/29.jpg" alt="图 32">  </p>
-<h3 id="2-创建远程仓库"><a href="#2-创建远程仓库" class="headerlink" title="2.创建远程仓库"></a>2.创建远程仓库</h3><p><img src="/../image-git/30.jpg" alt="图 33">  </p>
-<h3 id="3-查看仓库地址"><a href="#3-查看仓库地址" class="headerlink" title="3.查看仓库地址"></a>3.查看仓库地址</h3><p><img src="/../image-git/31.jpg" alt="图 34">  </p>
-<h3 id="4-把本地代码推送到远端"><a href="#4-把本地代码推送到远端" class="headerlink" title="4.把本地代码推送到远端"></a>4.把本地代码推送到远端</h3><p><img src="/../image-git/32.jpg" alt="图 35"><br><img src="/../image-git/33.jpg" alt="图 36"><br><img src="/../image-git/34.jpg" alt="图 37">  </p>
-<h3 id="5-从远程仓库克隆代码"><a href="#5-从远程仓库克隆代码" class="headerlink" title="5.从远程仓库克隆代码"></a>5.从远程仓库克隆代码</h3><p>我们同样可以从库下载代码,新建一个文件夹 repo2 ,进入然后进行如下操作。<br><img src="/../image-git/35.jpg" alt="图 38"><br><img src="/../image-git/36.jpg" alt="图 39"><br>此时我们发现我们的代码已经被下载下来了</p>
-<h2 id="五、ssh-连接概述"><a href="#五、ssh-连接概述" class="headerlink" title="五、ssh 连接概述"></a>五、ssh 连接概述</h2><p>实际上git 不仅仅支持用户名密码方式的配置,可以有另外一种相对更加安全的配置即ssh 方式配置</p>
-<h3 id="1-ssh-密钥的生成"><a href="#1-ssh-密钥的生成" class="headerlink" title="1.ssh 密钥的生成"></a>1.ssh 密钥的生成</h3><h4 id="生成公钥私钥"><a href="#生成公钥私钥" class="headerlink" title="生成公钥私钥"></a>生成公钥私钥</h4><p>ssh-keygen -t rsa<br>一直回车即可<br>会默认用户目录 .ssh 目录生成一个默认的id_rsa文件 和id_rsa.pub<br><img src="/../image-git/37.jpg" alt="图 40">  </p>
-<h3 id="2-ssh-密钥配置"><a href="#2-ssh-密钥配置" class="headerlink" title="2.ssh 密钥配置"></a>2.ssh 密钥配置</h3><p><img src="/../image-git/38.jpg" alt="图 41"><br><img src="/../image-git/39.jpg" alt="图 42">  </p>
-<h3 id="3-ssh-方式克隆-x2F-提交代码"><a href="#3-ssh-方式克隆-x2F-提交代码" class="headerlink" title="3.ssh 方式克隆&#x2F;提交代码:"></a>3.ssh 方式克隆&#x2F;提交代码:</h3><p><img src="/../image-git/40.jpg" alt="图 43">  </p>
-<h1 id="问题总结"><a href="#问题总结" class="headerlink" title="问题总结"></a>问题总结</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">同时，我通过对GIT的安装、启动、运行、解决问题的一系列完成，对此了解越来越深：</span><br><span class="line"></span><br><span class="line">上述我们的操作 使用的 是客户端TortoiseGit 操作的git ,实际上底层依旧是使用的命令行帮我们执行, 在早期 git 并没有窗口化工具,开发人员只能使用命令行模式</span><br><span class="line"></span><br><span class="line">实际上,如果你掌握并熟练使用了命令行模式操作git 的话,你会发现某些操作命令行比窗口化操作要简单</span><br><span class="line">所有你在工作中会发现高深的技术人员可能会喜欢命令行模式提交git，当下git 已经成为了最流行的版本控制工具。</span><br><span class="line"></span><br><span class="line">最后，通过这次实践，积极向同学询问其中的疑问，在同学的帮助下解决困难，完成作业，对与其中的不足也是我后续将继续学习的地方。</span><br></pre></td></tr></table></figure>
-
-]]></content>
-  </entry>
-  <entry>
-    <title>SparkLocal</title>
-    <url>/2023/06/08/Spark%E8%AF%BE%E7%A8%8B%E5%85%A8%E6%B5%81%E7%A8%8B%E9%85%8D%E7%BD%AEsparklocal%20/</url>
-    <content><![CDATA[<h1 id="Spark-local-部署"><a href="#Spark-local-部署" class="headerlink" title="Spark(local)部署"></a>Spark(local)部署</h1><h1 id="一、回顾认识Spark-Local"><a href="#一、回顾认识Spark-Local" class="headerlink" title="一、回顾认识Spark-Local"></a>一、回顾认识Spark-Local</h1><p>Spark 是由一个强大而活跃的开源社区开发和维护的，是一个用来实现快速，通用的集群计算平台，适用于各种各样原先需要多种不同的分布式平台的场景，包括批处理，迭代算法，交互式查询，流处理。通过在一个统一的框架下支持这些不同的计算，spark使我们可以简单而低耗地把各种处理流程整合在一起。具备 SQL、统计、预测建模（机器学习）等方面的经验，以及一定的python，matlab，R语言能力的数据科学家对数据进行分析，以回答问题或发现一些潜在规律。</p>
-<p>Spark的架构角色 - 理解<br>YARN主要有4类角色,从2个层面去看:</p>
-<h3 id="资源管理层面"><a href="#资源管理层面" class="headerlink" title="资源管理层面"></a>资源管理层面</h3><p>集群资源管理者(Master):ResourceManager<br>单机资源管理者(Worker):NodeManager </p>
-<h3 id="任务计算层面"><a href="#任务计算层面" class="headerlink" title="任务计算层面"></a>任务计算层面</h3><p>单任务管理者(Master):ApplicationMaster<br>单任务执行者(Worker):Task(容器内计算框架的工作角色)</p>
-<p><img src="/../image-local/1.png"></p>
-<p><img src="/../image-local/2.png"></p>
-<h3 id="Spark提供多种运行模式"><a href="#Spark提供多种运行模式" class="headerlink" title="Spark提供多种运行模式"></a>Spark提供多种运行模式</h3><p>本地模式(单机)<br>Standalone模式(集群)<br>Hadoop YARN模式(集群)<br>Kubernetes模式(容器集群)</p>
-<p>综上我们可以把Spark任务的运行，运行方式可分为三大类。即本地运行，集群运行和云模式，在此节我们聚焦到Spark的本地运行模式。</p>
-<h1 id="二、Spark-Local基本原理"><a href="#二、Spark-Local基本原理" class="headerlink" title="二、Spark-Local基本原理"></a>二、Spark-Local基本原理</h1><p>Spark在本地运行模式一般在开发测试时使用，该模式通过在本地的一个JVM进程中同时运行driver和1个executor进程，实现Spark任务的本地运行。其本质:启动一个JVM Process进程(一个进程里面有多个线程),执行任务Task<br>	Local模式可以限制模拟Spark集群环境的线程数量, 即Local[N] 或 Local[<em>]<br>	其中N代表可以使用N个线程,每个线程拥有一个cpu core。如果不指定N, 则默认是1个线程(该线程有1个core)。 通常Cpu有几个Core,就指定几个线程,最大化利用计算能力。<br>	如果是local[</em>],则代表 Run Spark locally with as many worker threads as logical cores on your machine.按照Cpu最多的Cores设置线程数。</p>
-<p><img src="/../image-local/3.png"></p>
-<p>在Local运行模式中，Driver和Executor运行在同一个节点的同一个JVM中。在Local模式下，只启动了一个Executor。根据不同的Master URL，Executor中可以启动不同的工作线程，用于执行Task。Local模式Driver和Executor关系</p>
-<p><img src="/../image-local/4.png"></p>
-<h3 id="Local-下的角色分布"><a href="#Local-下的角色分布" class="headerlink" title="Local 下的角色分布:"></a>Local 下的角色分布:</h3><p>	资源管理:<br>Master:Local进程本身<br>Worker:Local进程本身<br>	任务执行:<br>Driver:Local进程本身<br>Executor:不存在,没有独立的Executor角色, 由Local进程(也就是Driver)内的线程提供计算能力<br>PS: Driver也算一种特殊的Executor, 只不过多数时候, 我们将Executor当做纯Worker对待, 这样和Driver好区分(一类是管理 一类是工人) </p>
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h4><p>Local模式只能运行一个Spark程序, 如果执行多个Spark程序, 那就是由多个相互独立的Local进程在执行</p>
-<p><img src="/../image-local/5..png"></p>
-<h1 id="三、Spark-Local基本配置"><a href="#三、Spark-Local基本配置" class="headerlink" title="三、Spark-Local基本配置"></a>三、Spark-Local基本配置</h1><p>###1. 课程服务器环境：<br>使用三台Linux虚拟机服务器来学习, 三台虚拟机的功能分配是:<br>node1: Master(HDFS\YARN\Spark) 和 Worker(HDFS\ YARN\ Spark)<br>node2: Worker(HDFS\ YARN\ Spark)<br>node3: Worker(HDFS\ YARN\ Spark) 和 Hive</p>
-<h3 id="2-集群环境的搭建："><a href="#2-集群环境的搭建：" class="headerlink" title="2.集群环境的搭建："></a>2.集群环境的搭建：</h3><p>PYTHON 推荐3.8<br>JDK 1.8<br>操作系统CentOS 7<br>已部署好Hadoop集群(HDFS\YARN) </p>
-<p><img src="/../image-local/6.png"></p>
-<p><img src="/../image-local/7.png"></p>
-<h3 id="3-安装搭建"><a href="#3-安装搭建" class="headerlink" title="3.安装搭建"></a>3.安装搭建</h3><p>本实践的Python环境需要安装到Linux(虚拟机)和Windows(本机)上</p>
-<h5 id="3-1-Anaconda-On-Linux-安装"><a href="#3-1-Anaconda-On-Linux-安装" class="headerlink" title="3. 1 Anaconda On Linux 安装"></a>3. 1 Anaconda On Linux 安装</h5><p>安装上传安装包: 上传: 资料中提供的Anaconda3-2021.05-Linux-x86_64.sh文件到Linux服务器上安装:<br>sh .&#x2F;Anaconda3-2021.05-Linux-x86_64.sh</p>
-<p><img src="/../image-local/8.png"></p>
-<p>安装完成后, 退出终端， 重新进来，看到这个Base开头表明安装好了（base是默认的虚拟环境）。</p>
-<h5 id="3-2-Spark安装"><a href="#3-2-Spark安装" class="headerlink" title="3. 2 Spark安装"></a>3. 2 Spark安装</h5><p>（1）解压下载的Spark安装包<br>tar -zxvf spark-3.2.0-bin-hadoop3.2.tgz -C &#x2F;export&#x2F;server&#x2F;</p>
-<p><img src="/../image-local/9.png"></p>
-<p>（2）由于spark目录名称很⻓, 给其一个软链接:<br>ln -s &#x2F;export&#x2F;server&#x2F;spark-3.2.0-bin-hadoop3.2 &#x2F;export&#x2F;server&#x2F;spark</p>
-<p><img src="/../image-local/10.png"></p>
-<p>（3）环境变量<br>配置Spark由如下5个环境变量需要设置<br>	SPARK_HOME: 表示Spark安装路径在哪里<br>	PYSPARK_PYTHON: 表示Spark想运行Python程序, 那么去哪里找python执行器<br>	JAVA_HOME: 告知Spark Java在哪里<br>	HADOOP_CONF_DIR: 告知Spark Hadoop的配置文件在哪里<br>	HADOOP_HOME: 告知Spark  Hadoop安装在哪里</p>
-<p><img src="/../image-local/11.png"></p>
-<h1 id="四、Spark-Local测试训练"><a href="#四、Spark-Local测试训练" class="headerlink" title="四、Spark-Local测试训练"></a>四、Spark-Local测试训练</h1><h2 id="测试一：bin-x2F-pyspark"><a href="#测试一：bin-x2F-pyspark" class="headerlink" title="测试一：bin&#x2F;pyspark"></a>测试一：bin&#x2F;pyspark</h2><p>bin&#x2F;pyspark<br>bin&#x2F;pyspark 程序, 可以提供一个  交互式的 Python解释器环境, 在这里面可以写普通python代码, 以及spark代码</p>
-<p><img src="/../image-local/12.png"></p>
-<p>在这个环境内, 可以运行spark代码<br>图中的: parallelize 和 map 都是spark提供的API<br>sc.parallelize([1,2,3,4,5]).map(lambda x: x + 1).collect() </p>
-<p><img src="/../image-local/13.png"></p>
-<h2 id="测试二：WEB-UI-4040"><a href="#测试二：WEB-UI-4040" class="headerlink" title="测试二：WEB UI (4040)"></a>测试二：WEB UI (4040)</h2><p>（1）Spark程序在运行的时候, 会绑定到机器的4040端口上.<br>如果4040端口被占用, 会顺延到4041 … 4042…</p>
-<p><img src="/../image-local/14.png"></p>
-<p>（2）4040端口是一个WEBUI端口, 可以在浏览器内打开:</p>
-<p><img src="/../image-local/15.png"></p>
-<p>（3）打开监控页面后, 可以发现 在程序内仅有一个Driver<br>因为我们是Local模式, Driver即管理 又 干活.<br>同时, 输入jps</p>
-<p><img src="/../image-local/16.png"></p>
-<p>可以看到local模式下的唯一进程存在，这个进程 即是master也是worker</p>
-<h2 id="测试三：bin-x2F-spark-submit-PI"><a href="#测试三：bin-x2F-spark-submit-PI" class="headerlink" title="测试三：bin&#x2F;spark-submit (PI)"></a>测试三：bin&#x2F;spark-submit (PI)</h2><p>作用: 提交指定的Spark代码到Spark环境中运行这个仅作为了解即可, 因为这个是用于scala语言的解释器环境<br>bin&#x2F;spark-submit (PI)<br>作用: 提交指定的Spark代码到Spark环境中运行<br>使用方法:<br>语法：bin&#x2F;spark-submit [可选的一些选项] jar包或者python代码的路径 [代码的参数]<br>示例：bin&#x2F;spark-submit &#x2F;export&#x2F;server&#x2F;spark&#x2F;examples&#x2F;src&#x2F;main&#x2F;python&#x2F;pi.py 10<br>此案例 运行Spark官方所提供的示例代码 来计算圆周率值.  后面的10 是主函数接受的参数, 数字越高, 计算圆周率越准确.</p>
-<p><img src="/../image-local/17.png"></p>
-<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p><img src="/../image-local/18.png"></p>
-<p>了解：bin&#x2F;spark-shell<br>同样是一个解释器环境, 和bin&#x2F;pyspark不同的是, 这个解释器环境 运行的不是python代码, 而是scala程序代码</p>
-<p><img src="/../image-local/19.png"></p>
-<p>如上图，在不是合适的地方无法识别语法准确，这个仅作为了解即可, 因为这个是用于scala语言的解释器环境</p>
-<h1 id="五、Spark-Local总结"><a href="#五、Spark-Local总结" class="headerlink" title="五、Spark-Local总结"></a>五、Spark-Local总结</h1><p>Local模式就是以一个独立进程配合其内部线程来提供完成Spark运行时环境Local模式可以通过spark-shell&#x2F;pyspark&#x2F;spark-submit等来开启。是一个交互式的解释器执行环境环境启动后就得到了一个LocalSpark环境可以运行Python代码去进行Spark计算，类似Python自带解释器。</p>
-<p>Spark的任务在运行后，会在Driver所在机器绑定到4040端口提供当前任务的监控页面供查看。</p>
-<h3 id="综上："><a href="#综上：" class="headerlink" title="综上："></a>综上：</h3><p>Spark local模式被称为Local模式，是用单机的多个线程来模拟Spark分布式计算，通常用来验证开发出来的应用程序逻辑上有没有问题，运行该模式使用简单，速度快、通用性强，只需要把Spark的安装包解压后，改一些常用的配置即可使用，而不用启动Spark的Master、Worker守护进程，也不用启动Hadoop的各服务，这是和其他模式的区别哦，要记住才能理解。</p>
 ]]></content>
   </entry>
   <entry>
@@ -375,6 +321,60 @@
 <h3 id="查看历史服务器"><a href="#查看历史服务器" class="headerlink" title="查看历史服务器"></a>查看历史服务器</h3><p>历史服务器的默认端口是: 18080</p>
 <p><img src="/../image-standalone/32.jpg" alt="图 32">  </p>
 <h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">这个spark-standalone部署的任务总体来说还是很简单的，</span><br><span class="line">从头到尾基本没有遇到什么问题，基本上很顺利的就结束了这个任务点。</span><br><span class="line">也就在连接到standalone集群时出现了拒绝连接的情况，</span><br><span class="line">结果发现是hdf集群和yarn集群没有启动，除此之外就没有什么问题了</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>SparkLocal</title>
+    <url>/2023/06/08/Spark%E8%AF%BE%E7%A8%8B%E5%85%A8%E6%B5%81%E7%A8%8B%E9%85%8D%E7%BD%AEsparklocal/</url>
+    <content><![CDATA[<h1 id="Spark-local-部署"><a href="#Spark-local-部署" class="headerlink" title="Spark(local)部署"></a>Spark(local)部署</h1><h1 id="一、回顾认识Spark-Local"><a href="#一、回顾认识Spark-Local" class="headerlink" title="一、回顾认识Spark-Local"></a>一、回顾认识Spark-Local</h1><p>Spark 是由一个强大而活跃的开源社区开发和维护的，是一个用来实现快速，通用的集群计算平台，适用于各种各样原先需要多种不同的分布式平台的场景，包括批处理，迭代算法，交互式查询，流处理。通过在一个统一的框架下支持这些不同的计算，spark使我们可以简单而低耗地把各种处理流程整合在一起。具备 SQL、统计、预测建模（机器学习）等方面的经验，以及一定的python，matlab，R语言能力的数据科学家对数据进行分析，以回答问题或发现一些潜在规律。</p>
+<p>Spark的架构角色 - 理解<br>YARN主要有4类角色,从2个层面去看:</p>
+<h3 id="资源管理层面"><a href="#资源管理层面" class="headerlink" title="资源管理层面"></a>资源管理层面</h3><p>集群资源管理者(Master):ResourceManager<br>单机资源管理者(Worker):NodeManager </p>
+<h3 id="任务计算层面"><a href="#任务计算层面" class="headerlink" title="任务计算层面"></a>任务计算层面</h3><p>单任务管理者(Master):ApplicationMaster<br>单任务执行者(Worker):Task(容器内计算框架的工作角色)</p>
+<p><img src="/../image-local/1.png"></p>
+<p><img src="/../image-local/2.png"></p>
+<h3 id="Spark提供多种运行模式"><a href="#Spark提供多种运行模式" class="headerlink" title="Spark提供多种运行模式"></a>Spark提供多种运行模式</h3><p>本地模式(单机)<br>Standalone模式(集群)<br>Hadoop YARN模式(集群)<br>Kubernetes模式(容器集群)</p>
+<p>综上我们可以把Spark任务的运行，运行方式可分为三大类。即本地运行，集群运行和云模式，在此节我们聚焦到Spark的本地运行模式。</p>
+<h1 id="二、Spark-Local基本原理"><a href="#二、Spark-Local基本原理" class="headerlink" title="二、Spark-Local基本原理"></a>二、Spark-Local基本原理</h1><p>Spark在本地运行模式一般在开发测试时使用，该模式通过在本地的一个JVM进程中同时运行driver和1个executor进程，实现Spark任务的本地运行。其本质:启动一个JVM Process进程(一个进程里面有多个线程),执行任务Task<br>	Local模式可以限制模拟Spark集群环境的线程数量, 即Local[N] 或 Local[<em>]<br>	其中N代表可以使用N个线程,每个线程拥有一个cpu core。如果不指定N, 则默认是1个线程(该线程有1个core)。 通常Cpu有几个Core,就指定几个线程,最大化利用计算能力。<br>	如果是local[</em>],则代表 Run Spark locally with as many worker threads as logical cores on your machine.按照Cpu最多的Cores设置线程数。</p>
+<p><img src="/../image-local/3.png"></p>
+<p>在Local运行模式中，Driver和Executor运行在同一个节点的同一个JVM中。在Local模式下，只启动了一个Executor。根据不同的Master URL，Executor中可以启动不同的工作线程，用于执行Task。Local模式Driver和Executor关系</p>
+<p><img src="/../image-local/4.png"></p>
+<h3 id="Local-下的角色分布"><a href="#Local-下的角色分布" class="headerlink" title="Local 下的角色分布:"></a>Local 下的角色分布:</h3><p>	资源管理:<br>Master:Local进程本身<br>Worker:Local进程本身<br>	任务执行:<br>Driver:Local进程本身<br>Executor:不存在,没有独立的Executor角色, 由Local进程(也就是Driver)内的线程提供计算能力<br>PS: Driver也算一种特殊的Executor, 只不过多数时候, 我们将Executor当做纯Worker对待, 这样和Driver好区分(一类是管理 一类是工人) </p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h4><p>Local模式只能运行一个Spark程序, 如果执行多个Spark程序, 那就是由多个相互独立的Local进程在执行</p>
+<p><img src="/../image-local/5..png"></p>
+<h1 id="三、Spark-Local基本配置"><a href="#三、Spark-Local基本配置" class="headerlink" title="三、Spark-Local基本配置"></a>三、Spark-Local基本配置</h1><p>###1. 课程服务器环境：<br>使用三台Linux虚拟机服务器来学习, 三台虚拟机的功能分配是:<br>node1: Master(HDFS\YARN\Spark) 和 Worker(HDFS\ YARN\ Spark)<br>node2: Worker(HDFS\ YARN\ Spark)<br>node3: Worker(HDFS\ YARN\ Spark) 和 Hive</p>
+<h3 id="2-集群环境的搭建："><a href="#2-集群环境的搭建：" class="headerlink" title="2.集群环境的搭建："></a>2.集群环境的搭建：</h3><p>PYTHON 推荐3.8<br>JDK 1.8<br>操作系统CentOS 7<br>已部署好Hadoop集群(HDFS\YARN) </p>
+<p><img src="/../image-local/6.png"></p>
+<p><img src="/../image-local/7.png"></p>
+<h3 id="3-安装搭建"><a href="#3-安装搭建" class="headerlink" title="3.安装搭建"></a>3.安装搭建</h3><p>本实践的Python环境需要安装到Linux(虚拟机)和Windows(本机)上</p>
+<h5 id="3-1-Anaconda-On-Linux-安装"><a href="#3-1-Anaconda-On-Linux-安装" class="headerlink" title="3. 1 Anaconda On Linux 安装"></a>3. 1 Anaconda On Linux 安装</h5><p>安装上传安装包: 上传: 资料中提供的Anaconda3-2021.05-Linux-x86_64.sh文件到Linux服务器上安装:<br>sh .&#x2F;Anaconda3-2021.05-Linux-x86_64.sh</p>
+<p><img src="/../image-local/8.png"></p>
+<p>安装完成后, 退出终端， 重新进来，看到这个Base开头表明安装好了（base是默认的虚拟环境）。</p>
+<h5 id="3-2-Spark安装"><a href="#3-2-Spark安装" class="headerlink" title="3. 2 Spark安装"></a>3. 2 Spark安装</h5><p>（1）解压下载的Spark安装包<br>tar -zxvf spark-3.2.0-bin-hadoop3.2.tgz -C &#x2F;export&#x2F;server&#x2F;</p>
+<p><img src="/../image-local/9.png"></p>
+<p>（2）由于spark目录名称很⻓, 给其一个软链接:<br>ln -s &#x2F;export&#x2F;server&#x2F;spark-3.2.0-bin-hadoop3.2 &#x2F;export&#x2F;server&#x2F;spark</p>
+<p><img src="/../image-local/10.png"></p>
+<p>（3）环境变量<br>配置Spark由如下5个环境变量需要设置<br>	SPARK_HOME: 表示Spark安装路径在哪里<br>	PYSPARK_PYTHON: 表示Spark想运行Python程序, 那么去哪里找python执行器<br>	JAVA_HOME: 告知Spark Java在哪里<br>	HADOOP_CONF_DIR: 告知Spark Hadoop的配置文件在哪里<br>	HADOOP_HOME: 告知Spark  Hadoop安装在哪里</p>
+<p><img src="/../image-local/11.png"></p>
+<h1 id="四、Spark-Local测试训练"><a href="#四、Spark-Local测试训练" class="headerlink" title="四、Spark-Local测试训练"></a>四、Spark-Local测试训练</h1><h2 id="测试一：bin-x2F-pyspark"><a href="#测试一：bin-x2F-pyspark" class="headerlink" title="测试一：bin&#x2F;pyspark"></a>测试一：bin&#x2F;pyspark</h2><p>bin&#x2F;pyspark<br>bin&#x2F;pyspark 程序, 可以提供一个  交互式的 Python解释器环境, 在这里面可以写普通python代码, 以及spark代码</p>
+<p><img src="/../image-local/12.png"></p>
+<p>在这个环境内, 可以运行spark代码<br>图中的: parallelize 和 map 都是spark提供的API<br>sc.parallelize([1,2,3,4,5]).map(lambda x: x + 1).collect() </p>
+<p><img src="/../image-local/13.png"></p>
+<h2 id="测试二：WEB-UI-4040"><a href="#测试二：WEB-UI-4040" class="headerlink" title="测试二：WEB UI (4040)"></a>测试二：WEB UI (4040)</h2><p>（1）Spark程序在运行的时候, 会绑定到机器的4040端口上.<br>如果4040端口被占用, 会顺延到4041 … 4042…</p>
+<p><img src="/../image-local/14.png"></p>
+<p>（2）4040端口是一个WEBUI端口, 可以在浏览器内打开:</p>
+<p><img src="/../image-local/15.png"></p>
+<p>（3）打开监控页面后, 可以发现 在程序内仅有一个Driver<br>因为我们是Local模式, Driver即管理 又 干活.<br>同时, 输入jps</p>
+<p><img src="/../image-local/16.png"></p>
+<p>可以看到local模式下的唯一进程存在，这个进程 即是master也是worker</p>
+<h2 id="测试三：bin-x2F-spark-submit-PI"><a href="#测试三：bin-x2F-spark-submit-PI" class="headerlink" title="测试三：bin&#x2F;spark-submit (PI)"></a>测试三：bin&#x2F;spark-submit (PI)</h2><p>作用: 提交指定的Spark代码到Spark环境中运行这个仅作为了解即可, 因为这个是用于scala语言的解释器环境<br>bin&#x2F;spark-submit (PI)<br>作用: 提交指定的Spark代码到Spark环境中运行<br>使用方法:<br>语法：bin&#x2F;spark-submit [可选的一些选项] jar包或者python代码的路径 [代码的参数]<br>示例：bin&#x2F;spark-submit &#x2F;export&#x2F;server&#x2F;spark&#x2F;examples&#x2F;src&#x2F;main&#x2F;python&#x2F;pi.py 10<br>此案例 运行Spark官方所提供的示例代码 来计算圆周率值.  后面的10 是主函数接受的参数, 数字越高, 计算圆周率越准确.</p>
+<p><img src="/../image-local/17.png"></p>
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><p><img src="/../image-local/18.png"></p>
+<p>了解：bin&#x2F;spark-shell<br>同样是一个解释器环境, 和bin&#x2F;pyspark不同的是, 这个解释器环境 运行的不是python代码, 而是scala程序代码</p>
+<p><img src="/../image-local/19.png"></p>
+<p>如上图，在不是合适的地方无法识别语法准确，这个仅作为了解即可, 因为这个是用于scala语言的解释器环境</p>
+<h1 id="五、Spark-Local总结"><a href="#五、Spark-Local总结" class="headerlink" title="五、Spark-Local总结"></a>五、Spark-Local总结</h1><p>Local模式就是以一个独立进程配合其内部线程来提供完成Spark运行时环境Local模式可以通过spark-shell&#x2F;pyspark&#x2F;spark-submit等来开启。是一个交互式的解释器执行环境环境启动后就得到了一个LocalSpark环境可以运行Python代码去进行Spark计算，类似Python自带解释器。</p>
+<p>Spark的任务在运行后，会在Driver所在机器绑定到4040端口提供当前任务的监控页面供查看。</p>
+<h3 id="综上："><a href="#综上：" class="headerlink" title="综上："></a>综上：</h3><p>Spark local模式被称为Local模式，是用单机的多个线程来模拟Spark分布式计算，通常用来验证开发出来的应用程序逻辑上有没有问题，运行该模式使用简单，速度快、通用性强，只需要把Spark的安装包解压后，改一些常用的配置即可使用，而不用启动Spark的Master、Worker守护进程，也不用启动Hadoop的各服务，这是和其他模式的区别哦，要记住才能理解。</p>
+]]></content>
   </entry>
   <entry>
     <title>spark全流程配置SparkHA|SparkYarn</title>
