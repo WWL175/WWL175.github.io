@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        
+    
+    <link rel='stylesheet' href="/./css/dracula.css">
+
+        <title>kafka流处理平台</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="manifest" href="/site.webmanifest">
+
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body>
+        <header class="al_header al_pos_fixed">
+    <div class="al_header_container dis_flex_jcenter">
+        <div class="al_header_container_left">
+            <div class="al_header_site_title">
+                <a href="/">王文浪个人博客</a>
+            </div>
+        </div>
+
+        <div class="dis_flex_jcenter">
+            <div class="al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-menu"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</header>
+
+        <div class="al_sidebar">
+
+    <div class="al_sidebar_overlay al_full_cover"></div>
+
+    <div class="al_pos_fixed al_sidebar_cnt">
+        <div class="dis_flex_acenter al_sidebar_header">
+            <h3>王文浪个人博客</h3>
+            <div class="al_sidebar_close al_header_setting">
+                <svg class="al_header_icon">
+                    <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-close"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="al_sidebar_author_cnt">
+
+            <div class="al_sidebar_author_info">
+                <h4>到底啦！！！</h4>
+                <img class="al_sidebar_avatar" src="https://yourAvatorURL">
+                <p></p>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+        
+    <div class="dis_flex_center al_lightbox_cnt al_full_cover">
+        <img class="al_lightbox_img"/>
+    </div>
+    <div class="al_page_background dis_flex_center al_full_cover"></div>
+    <div class="al_page_container">
+        <div class="al_pos_ab al_fake_background"></div>
+        <div class="al_main_container al_shadow al_main_page_container">
+            <article class="al_article">
+                <header>
+                    <h1 class="al_page_title">
+                        kafka流处理平台
+                    </h1>
+                    <div class="al_page_info dis_flex">
+                        <div class="al_page_content_info">
+                            Fri June 23, 2023 01:49 PM
+                        </div>
+
+                        
+                            <div class="al_page_content_info">
+                                2.4k words
+                            </div>
+                        
+
+                        
+                            <div class="al_page_content_info">
+                                8 minutes read
+                            </div>
+                        
+                        <span class="tags"></span>
+                    </div>
+                </header>
+
+                
+                    <div class="al_page_content_outline">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD"><span class="toc-text">主要功能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%A6%E8%A7%A3"><span class="toc-text">代码详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#common%E5%8C%85%E4%B8%AD"><span class="toc-text">common包中</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ErrorCode"><span class="toc-text">ErrorCode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MessageEntity"><span class="toc-text">MessageEntity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Response"><span class="toc-text">Response</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#config%E5%8C%85"><span class="toc-text">config包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#KafkaConsumerConfig"><span class="toc-text">KafkaConsumerConfig</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#KafkaProducerConfig"><span class="toc-text">KafkaProducerConfig</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#consumer%E4%B8%AD"><span class="toc-text">consumer中</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SimpleConsumer"><span class="toc-text">SimpleConsumer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#controller%E4%B8%AD"><span class="toc-text">controller中</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ProduceController"><span class="toc-text">ProduceController</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#producer%E4%B8%AD"><span class="toc-text">producer中</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ProducerCallback"><span class="toc-text">ProducerCallback</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SimpleProducer"><span class="toc-text">SimpleProducer</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E5%B0%B1%E6%98%AF%E5%90%AF%E5%8A%A8%E4%BB%A3%E7%A0%81KafkaDemoApplication"><span class="toc-text">最后就是启动代码KafkaDemoApplication</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-text">测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GET%E6%B5%8B%E8%AF%95"><span class="toc-text">GET测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#post%E6%B5%8B%E8%AF%95"><span class="toc-text">post测试</span></a></li></ol></li></ol>
+                    </div>
+                
+
+                
+                <section id="post-body">
+                    <h1 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h1><p>1、发布和订阅消息流，这个功能类似于消息队列<br>2、以容错的方式记录消息流，kafka以文件的方式来存储消息流<br>3、可以再消息发布的时候进行处理</p>
+<h1 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h1><h2 id="common包中"><a href="#common包中" class="headerlink" title="common包中"></a>common包中</h2><h3 id="ErrorCode"><a href="#ErrorCode" class="headerlink" title="ErrorCode"></a>ErrorCode</h3><p>该代码文件说明输出成功为200，输出错误为500</p>
+<h3 id="MessageEntity"><a href="#MessageEntity" class="headerlink" title="MessageEntity"></a>MessageEntity</h3><p>该代码文件定义了一个名为MessageEntity的Java类，用于表示消息的实体。<br>该类具有以下属性：<br>1、title：消息的标题，类型为String。<br>2、body：消息的内容，类型为String。<br>该类使用了Lombok注解，包括@Getter、@Setter和@EqualsAndHashCode。这些注解可以自动为属性生成相应的getter、setter方法，并重写hashCode()和equals()方法。<br>此外，该类还实现了toString()方法，用于将消息实体转换为字符串表示，方便输出和调试。</p>
+<h3 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h3><p>该代码文件定义了一个名为Response的Java类，用于表示响应的实体。<br>该类具有以下属性：<br>1、code：响应码，类型为int。<br>2、message：消息，类型为String。<br>该类使用了Lombok注解，包括@Getter和@Setter。这些注解可以自动为属性生成相应的getter和setter方法。<br>该类还定义了一个构造函数，用于初始化code和message属性的值。<br>此外，该类还重写了toString()方法，用于将Response对象转换为字符串表示，方便输出和调试。</p>
+<h2 id="config包"><a href="#config包" class="headerlink" title="config包"></a>config包</h2><h3 id="KafkaConsumerConfig"><a href="#KafkaConsumerConfig" class="headerlink" title="KafkaConsumerConfig"></a>KafkaConsumerConfig</h3><p>该代码文件中，定义了一个名为KafkaConsumerConfig的Java配置类，用于配置Kafka消费者的相关属性。<br>@Configuration注解指示这是一个配置类，并将其识别为Spring的配置文件。<br>@EnableKafka注解启用了Spring Kafka的功能，使得可以创建Kafka相关的bean。<br>在类中，使用了@Value注解来注入一些属性值。这些属性包括：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">servers: Kafka服务地址</span><br><span class="line">enableAutoCommit: 是否自动提交消费位移</span><br><span class="line">sessionTimeout: Consumer的Session超时时间</span><br><span class="line">autoCommitInterval: 自动提交消费位移的间隔时间</span><br><span class="line">groupId: 消费者所属的消费者组ID</span><br><span class="line">autoOffsetReset: 如果没有初始的消费位移，从哪里开始消费</span><br><span class="line">concurrency: 并发消费者的数量</span><br></pre></td></tr></table></figure>
+<p>然后，使用@Bean注解定义了一个名为kafkaListenerContainerFactory的bean，用于创建KafkaListenerContainerFactory实例。这个工厂用于创建ConcurrentMessageListenerContainer实例，通过它来在Kafka上监听消息。</p>
+<h3 id="KafkaProducerConfig"><a href="#KafkaProducerConfig" class="headerlink" title="KafkaProducerConfig"></a>KafkaProducerConfig</h3><p>该代码文件中，完成了Kafka消费者的配置。<br>第一个方法kafkaListenerContainerFactory()会创建一个ConcurrentKafkaListenerContainerFactory实例，并设置了一些属性：<br>使用consumerFactory()方法创建了一个消费者工厂(ConsumerFactory)。<br>将并发消费者的数量设置为concurrency。<br>将轮询超时时间设置为1500毫秒。<br>接下来，实现了consumerFactory()方法，创建了一个DefaultKafkaConsumerFactory实例，用于创建Kafka消费者。在这个方法中：<br>使用consumerConfigs()方法获取了Kafka消费者的配置属性。<br>指定键和值的反序列化器为StringDeserializer。<br>指定消息实体的反序列化器为JsonDeserializer，并传入MessageEntity.class作为目标类型。<br>最后，定义了consumerConfigs()方法，用于将Kafka消费者的配置属性封装到一个Map&lt;String, Object&gt;对象中。这些配置属性包括：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">BOOTSTRAP_SERVERS_CONFIG：Kafka服务器的地址。</span><br><span class="line">ENABLE_AUTO_COMMIT_CONFIG：是否允许自动提交消费位移。</span><br><span class="line">AUTO_COMMIT_INTERVAL_MS_CONFIG：自动提交消费位移的间隔时间。</span><br><span class="line">SESSION_TIMEOUT_MS_CONFIG：消费者的会话超时时间。</span><br><span class="line">KEY_DESERIALIZER_CLASS_CONFIG：键的反序列化器类。</span><br><span class="line">VALUE_DESERIALIZER_CLASS_CONFIG：值的反序列化器类。</span><br><span class="line">GROUP_ID_CONFIG：消费者所属的消费者组ID。</span><br><span class="line">AUTO_OFFSET_RESET_CONFIG：如果没有初始的消费位移，从哪里开始消费。</span><br></pre></td></tr></table></figure>
+<p>以上完成了Kafka消费者的配置，可以使用kafkaListenerContainerFactory()方法返回的工厂类创建Kafka监听容器，从而消费消息。</p>
+<h2 id="consumer中"><a href="#consumer中" class="headerlink" title="consumer中"></a>consumer中</h2><h3 id="SimpleConsumer"><a href="#SimpleConsumer" class="headerlink" title="SimpleConsumer"></a>SimpleConsumer</h3><p>该代码文件中表示这是一个简单的Kafka消息消费者类。<br>该类使用了Spring Kafka提供的注解@KafkaListener来声明对Kafka消息的监听。在@KafkaListener注解中，指定了要监听的主题(topics)和使用的Kafka监听容器工厂(containerFactory)。<br>接收到消息后，消息会被传递给receive()方法进行处理。在该方法中，使用了Gson对象将MessageEntity对象转换为JSON字符串，并通过日志打印出来。<br>需要注意的是，该类使用了@Component注解，将其声明为Spring的组件，以便在应用程序启动时自动扫描并创建该类的实例。<br>此消费者类可以使用配置好的Kafka监听容器工厂(kafkaListenerContainerFactory)来消费Kafka中的消息。</p>
+<h2 id="controller中"><a href="#controller中" class="headerlink" title="controller中"></a>controller中</h2><h3 id="ProduceController"><a href="#ProduceController" class="headerlink" title="ProduceController"></a>ProduceController</h3><p>这是一个用于控制Kafka消息生产的控制器类。它使用了Spring的@RestController注解将该类声明为一个RESTful风格的控制器，处理HTTP请求并返回JSON格式的响应。<br>在该类中，定义了两个请求处理方法：<br>sendKafka()方法：使用@RequestMapping注解指定了URL路径&#x2F;kafka&#x2F;index、请求方法为GET，用于测试控制器的可用性。该方法返回一个Response对象，其中包含了一个状态码(ErrorCode.SUCCESS)和消息(“OK”)。<br>sendKafka(MessageEntity message)方法：使用@RequestMapping注解指定了URL路径&#x2F;kafka&#x2F;send、请求方法为POST，用于发送Kafka消息。接收一个MessageEntity对象作为请求体，表示要发送的消息内容。该方法使用SimpleProducer类的实例来发送消息到指定的Kafka主题(topic)中。如果发送成功，将返回一个Response对象，其中包含了一个状态码(ErrorCode.SUCCESS)和消息(“发送kafka成功”)；如果发送失败，将返回一个Response对象，其中包含了一个状态码(ErrorCode.EXCEPTION)和消息(“发送kafka失败”)。<br>在这个控制器类中，注入了一个SimpleProducer的实例，用于实际执行消息发送的操作。SimpleProducer是一个Kafka消息生产者的类，它使用了Kafka的客户端库来发送消息到Kafka集群中。<br>另外，使用了@Value注解将Kafka的默认主题名(topic)从配置文件中注入到topic变量中。Gson对象用于将MessageEntity对象转换为JSON格式的字符串，并通过日志输出消息内容。</p>
+<h2 id="producer中"><a href="#producer中" class="headerlink" title="producer中"></a>producer中</h2><h3 id="ProducerCallback"><a href="#ProducerCallback" class="headerlink" title="ProducerCallback"></a>ProducerCallback</h3><p>这段代码表示一个Kafka生产者应用程序中的回调类ProducerCallback。该回调的目的是处理消息发送到Kafka主题的结果。<br>以下是代码的详细解析：<br>ProducerCallback类实现了ListenableFutureCallback接口，该接口提供处理异步操作结果的回调方法。<br>该类有三个实例变量：startTime、key和message。<br>startTime表示消息发送操作开始的时间。<br>key表示正在发送的消息的键。<br>message是MessageEntity类的实例，它保存消息的内容。<br>该类有一个构造函数，接受startTime、key和message作为参数，并初始化实例变量。<br>onFailure方法在消息发送操作失败时被调用。它简单地打印异常的堆栈跟踪。<br>onSuccess方法在消息发送操作成功时被调用。它接收一个SendResult对象，该对象包含有关发送的消息的信息，如主题、分区、偏移量等。<br>在onSuccess方法中，通过将当前系统时间减去startTime来计算经过的时间。<br>从SendResult中获取RecordMetadata对象，该对象包含有关发送的消息的信息，如主题、分区和偏移量。<br>如果RecordMetadata不为空，使用StringBuilder构造一个日志消息，包含有关发送的消息的详细信息，包括键、消息内容、分区、偏移量和经过的时间。<br>然后，使用SLF4J日志记录器记录日志消息。</p>
+<h3 id="SimpleProducer"><a href="#SimpleProducer" class="headerlink" title="SimpleProducer"></a>SimpleProducer</h3><p>这段代码是一个简单的Kafka消息生产者类SimpleProducer。它使用了Spring Kafka提供的KafkaTemplate来发送消息。<br>代码解析如下：<br>SimpleProducer类是一个组件（Component），用于将其作为Spring的bean进行管理。<br>代码中自动注入了一个名为kafkaTemplate的KafkaTemplate实例，用于发送Kafka消息。该实例的泛型类型为&lt;String, MessageEntity&gt;，表示消息的键类型为字符串，消息的值类型为MessageEntity对象。<br>send方法接受topic和message作为参数，并调用kafkaTemplate.send来发送消息到指定的主题。<br>第二个send方法接受topic、key和entity作为参数，用于发送具有指定主题、键和消息体的消息。它首先创建一个ProducerRecord对象，包含了要发送的消息的主题、键和消息体。<br>然后，它记录了消息发送操作开始的时间，使用System.currentTimeMillis()获取当前时间戳。<br>接下来，它调用kafkaTemplate.send方法发送消息，并将返回的ListenableFuture对象赋值给future变量。ListenableFuture是Spring提供的一个可以监听异步操作结果的接口。<br>最后，它通过调用future.addCallback方法，将一个ProducerCallback的实例添加为回调函数。回调函数将在消息发送成功或失败时被调用，用于处理发送结果和记录日志。</p>
+<h1 id="最后就是启动代码KafkaDemoApplication"><a href="#最后就是启动代码KafkaDemoApplication" class="headerlink" title="最后就是启动代码KafkaDemoApplication"></a>最后就是启动代码KafkaDemoApplication</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package com.bigdata19.kafka;</span><br><span class="line"></span><br><span class="line">import org.springframework.boot.SpringApplication;</span><br><span class="line">import org.springframework.boot.autoconfigure.EnableAutoConfiguration;</span><br><span class="line">import org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line">//表示这是一个Spring Boot应用程序，并将启用自动配置和组件扫描。</span><br><span class="line">@EnableAutoConfiguration //自动配置所需的bean、组件和应用程序上下文，简化配置过程</span><br><span class="line">@SpringBootApplication   //这是一个组合注解，等效于使用@Configuration</span><br><span class="line">public class KafkaDemoApplication &#123;</span><br><span class="line"></span><br><span class="line">	//这是应用程序的入口方法。在这个方法中，通过调用SpringApplication.run()方法来启动Spring Boot应用程序，并传递KafkaDemoApplication.class作为参数。这将启动应用程序并加载必要的配置，并运行Spring Boot容器。</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		SpringApplication.run(KafkaDemoApplication.class, args);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>&#x2F;&#x2F;首先安装postman接口调试工具<br>启动项目<br><img src="/../postman-img/1.png"></p>
+<h2 id="GET测试"><a href="#GET测试" class="headerlink" title="GET测试"></a>GET测试</h2><p><a target="_blank" rel="noopener" href="http://localhost:8080/kafka/index">http://localhost:8080/kafka/index</a><br><img src="/../postman-img/2.png"></p>
+<h2 id="post测试"><a href="#post测试" class="headerlink" title="post测试"></a>post测试</h2><p><a target="_blank" rel="noopener" href="http://localhost:8080/kafka/send">http://localhost:8080/kafka/send</a><br>发送json数据 {“title”:”bigdata20-kafka”,”body”:”2023-06-23，王文浪（204800137）的kafka实训”}<br><img src="/../postman-img/3.png"></p>
+
+                </section>
+
+                
+                
+
+                
+
+            </article>
+
+            
+            <nav class="dis_flex al_post_nav">
+                <a class="al_post_nav_item dis_flex_acenter" href="/">
+                    
+                </a>
+                <a class="al_post_nav_item dis_flex_acenter" href="/2023/06/22/%E9%83%A8%E7%BD%B2Eagle%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7/">
+                    
+                        <span class="al_text_ellipsis al_post_nav_desc">部署Eagle运维监控</span>
+                        <svg class="al_arrow">
+                            <use xmlns="http://www.w3.org/2000/svg" xlink:href="/assets/svg_icons.svg#svg-arrow-right"></use>
+                        </svg>
+                    
+                </a>
+            </nav>
+        </div>
+    </div>
+
+
+        <div class="al_index_footer dis_flex_center">
+    <div class="al_index_footer_item al_index_footer_title">
+        到底啦！！！
+    </div>
+
+    
+    
+
+    <div class="al_index_footer_item al_index_footer_extra">
+        Created By 
+        <a target="_blank" rel="noopener" href="https://github.com/iGuan7u/Acetolog">AcetoLog</a>
+         · Power By 
+        <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    </div>
+
+    <div class="al_index_footer_item al_index_footer_extra_right">
+        All Right Reserved
+    </div>
+</div>
+
+        <script type="text/javascript" async="async" src="/javascripts/acelog.js"></script>
+        
+        
+        
+        
+        
+
+    </body>
+</html>
